@@ -7,225 +7,113 @@
   "properties": {
     "nct_id": {
       "type": "string",
-      "description": "ClinicalTrials.gov NCT identifier.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov",
-        "trial registry"
-      ]
+      "description": "ClinicalTrials.gov NCT identifier. Commonly found in: ClinicalTrials.gov, trial registry."
     },
     "title": {
       "type": "string",
-      "description": "Official title of the clinical trial.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov title field"
-      ]
+      "description": "Official title of the clinical trial. Commonly found in: ClinicalTrials.gov title field."
     },
     "sponsor_name": {
       "type": "string",
-      "description": "Primary sponsor organization.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov sponsor field"
-      ]
+      "description": "Primary sponsor organization. Commonly found in: ClinicalTrials.gov sponsor field."
     },
     "sponsor_type": {
       "type": "string",
-      "enum": [
-        "industry",
-        "academic",
-        "nih",
-        "other"
-      ],
-      "description": "Type of primary sponsor.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov sponsor class"
-      ]
+      "enum": ["industry", "academic", "nih", "other"],
+      "description": "Type of primary sponsor. Commonly found in: ClinicalTrials.gov sponsor class."
     },
     "collaborators": {
       "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "List of collaborating organizations.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov collaborators section"
-      ]
+      "description": "List of collaborating organizations. Commonly found in: ClinicalTrials.gov collaborators section."
     },
     "status": {
       "type": "string",
-      "enum": [
-        "recruiting",
-        "active_not_recruiting",
-        "completed",
-        "terminated",
-        "withdrawn",
-        "suspended"
-      ],
-      "description": "Current recruitment status of the trial.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov status field"
-      ]
+      "enum": ["recruiting", "active_not_recruiting", "completed", "terminated", "withdrawn", "suspended"],
+      "description": "Current recruitment status of the trial. Commonly found in: ClinicalTrials.gov status field."
     },
     "phase": {
       "type": "string",
-      "enum": [
-        "1",
-        "1_2",
-        "2",
-        "2_3",
-        "3",
-        "4",
-        "na"
-      ],
-      "description": "Clinical trial phase.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov phase field"
-      ]
+      "enum": ["1", "1_2", "2", "2_3", "3", "4", "na"],
+      "description": "Clinical trial phase. Commonly found in: ClinicalTrials.gov phase field."
     },
     "study_type": {
       "type": "string",
-      "enum": [
-        "interventional",
-        "observational"
-      ],
-      "description": "Type of study design.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov study type field"
-      ]
+      "enum": ["interventional", "observational"],
+      "description": "Type of study design. Commonly found in: ClinicalTrials.gov study type field."
     },
     "conditions": {
       "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "Medical conditions or diseases being studied.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov conditions section"
-      ]
+      "description": "Medical conditions or diseases being studied. Commonly found in: ClinicalTrials.gov conditions section."
     },
     "interventions": {
       "type": "array",
       "items": {
         "$ref": "#/$defs/Intervention"
       },
-      "description": "Interventions being tested.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov interventions section"
-      ]
+      "description": "Interventions being tested. Commonly found in: ClinicalTrials.gov interventions section."
     },
     "primary_outcomes": {
       "type": "array",
       "items": {
         "$ref": "#/$defs/Outcome"
       },
-      "description": "Primary outcome measures.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov outcome measures section"
-      ]
+      "description": "Primary outcome measures. Commonly found in: ClinicalTrials.gov outcome measures section."
     },
     "enrollment_target": {
       "type": "number",
-      "description": "Target number of participants.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov enrollment field"
-      ]
+      "description": "Target number of participants. Commonly found in: ClinicalTrials.gov enrollment field."
     },
     "enrollment_actual": {
       "type": "number",
-      "description": "Actual number of participants enrolled.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov enrollment field"
-      ]
+      "description": "Actual number of participants enrolled. Commonly found in: ClinicalTrials.gov enrollment field."
     },
     "start_date": {
       "type": "string",
       "format": "date",
-      "description": "Study start date.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov dates section"
-      ]
+      "description": "Study start date. Commonly found in: ClinicalTrials.gov dates section."
     },
     "primary_completion_date": {
       "type": "string",
       "format": "date",
-      "description": "Primary completion date.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov dates section"
-      ]
+      "description": "Primary completion date. Commonly found in: ClinicalTrials.gov dates section."
     },
     "locations": {
       "type": "array",
       "items": {
         "$ref": "#/$defs/TrialLocation"
       },
-      "description": "Study locations.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov locations section"
-      ]
+      "description": "Study locations. Commonly found in: ClinicalTrials.gov locations section."
     },
     "eligibility_min_age": {
       "type": "string",
-      "description": "Minimum age for eligibility.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov eligibility criteria"
-      ]
+      "description": "Minimum age for eligibility. Commonly found in: ClinicalTrials.gov eligibility criteria."
     },
     "eligibility_max_age": {
       "type": "string",
-      "description": "Maximum age for eligibility.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov eligibility criteria"
-      ]
+      "description": "Maximum age for eligibility. Commonly found in: ClinicalTrials.gov eligibility criteria."
     },
     "eligibility_sex": {
       "type": "string",
-      "description": "Sex eligibility requirement.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov eligibility criteria"
-      ]
+      "description": "Sex eligibility requirement. Commonly found in: ClinicalTrials.gov eligibility criteria."
     },
     "results_available": {
       "type": "boolean",
-      "description": "Whether results have been posted.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov results section"
-      ]
+      "description": "Whether results have been posted. Commonly found in: ClinicalTrials.gov results section."
     },
     "source_url": {
       "type": "string",
-      "description": "URL of the source trial registry page.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "ClinicalTrials.gov trial URL"
-      ]
+      "description": "URL of the source trial registry page. Commonly found in: ClinicalTrials.gov trial URL."
     },
     "extracted_at": {
       "type": "string",
       "format": "date-time",
-      "description": "ISO 8601 timestamp when this record was extracted.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "scraper metadata"
-      ]
+      "description": "ISO 8601 timestamp when this record was extracted. Commonly found in: scraper metadata."
     }
   },
   "$defs": {
@@ -246,10 +134,7 @@
           "description": "Description of the intervention."
         }
       },
-      "required": [
-        "type",
-        "name"
-      ]
+      "required": ["type", "name"]
     },
     "Outcome": {
       "type": "object",
@@ -264,9 +149,7 @@
           "description": "Time point at which the outcome is measured."
         }
       },
-      "required": [
-        "measure"
-      ]
+      "required": ["measure"]
     },
     "TrialLocation": {
       "type": "object",
@@ -289,19 +172,8 @@
           "description": "Recruitment status at this location."
         }
       },
-      "required": [
-        "city",
-        "country"
-      ]
+      "required": ["city", "country"]
     }
   },
-  "required": [
-    "nct_id",
-    "title",
-    "sponsor_name",
-    "status",
-    "conditions",
-    "source_url",
-    "extracted_at"
-  ]
+  "required": ["nct_id", "title", "sponsor_name", "status", "conditions", "source_url", "extracted_at"]
 }

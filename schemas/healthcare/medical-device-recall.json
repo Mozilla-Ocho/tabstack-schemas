@@ -7,219 +7,101 @@
   "properties": {
     "recall_id": {
       "type": "string",
-      "description": "Regulatory recall identifier.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "FDA recall database",
-        "recall notice"
-      ]
+      "description": "Regulatory recall identifier. Commonly found in: FDA recall database, recall notice."
     },
     "device_name": {
       "type": "string",
-      "description": "Name of the recalled device.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "FDA recall notice",
-        "press release"
-      ]
+      "description": "Name of the recalled device. Commonly found in: FDA recall notice, press release."
     },
     "device_model": {
       "type": "string",
-      "description": "Model number or name.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "FDA recall notice",
-        "device label"
-      ]
+      "description": "Model number or name. Commonly found in: FDA recall notice, device label."
     },
     "device_type": {
       "type": "string",
-      "description": "Type or category of medical device.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "FDA device classification",
-        "recall notice"
-      ]
+      "description": "Type or category of medical device. Commonly found in: FDA device classification, recall notice."
     },
     "manufacturer_name": {
       "type": "string",
-      "description": "Name of the device manufacturer.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "FDA recall notice",
-        "press release"
-      ]
+      "description": "Name of the device manufacturer. Commonly found in: FDA recall notice, press release."
     },
     "manufacturer_country": {
       "type": "string",
-      "description": "Country of the manufacturer.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "FDA recall notice",
-        "manufacturer address"
-      ]
+      "description": "Country of the manufacturer. Commonly found in: FDA recall notice, manufacturer address."
     },
     "recall_class": {
       "type": "string",
-      "enum": [
-        "I",
-        "II",
-        "III"
-      ],
-      "description": "FDA recall class (I = most serious).",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "FDA recall database"
-      ]
+      "enum": ["I", "II", "III"],
+      "description": "FDA recall class (I = most serious). Commonly found in: FDA recall database."
     },
     "recall_type": {
       "type": "string",
-      "enum": [
-        "voluntary",
-        "mandatory"
-      ],
-      "description": "Whether the recall was voluntary or mandatory.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "FDA recall notice"
-      ]
+      "enum": ["voluntary", "mandatory"],
+      "description": "Whether the recall was voluntary or mandatory. Commonly found in: FDA recall notice."
     },
     "recall_status": {
       "type": "string",
-      "enum": [
-        "ongoing",
-        "terminated",
-        "completed"
-      ],
-      "description": "Current status of the recall.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "FDA recall database"
-      ]
+      "enum": ["ongoing", "terminated", "completed"],
+      "description": "Current status of the recall. Commonly found in: FDA recall database."
     },
     "initiated_date": {
       "type": "string",
       "format": "date",
-      "description": "Date the recall was initiated.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "FDA recall notice"
-      ]
+      "description": "Date the recall was initiated. Commonly found in: FDA recall notice."
     },
     "terminated_date": {
       "type": "string",
       "format": "date",
-      "description": "Date the recall was terminated.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "FDA recall database"
-      ]
+      "description": "Date the recall was terminated. Commonly found in: FDA recall database."
     },
     "reason_for_recall": {
       "type": "string",
-      "description": "Reason or root cause for the recall.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "FDA recall notice",
-        "press release"
-      ]
+      "description": "Reason or root cause for the recall. Commonly found in: FDA recall notice, press release."
     },
     "hazard_to_health": {
       "type": "string",
-      "description": "Description of the health hazard.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "FDA recall notice"
-      ]
+      "description": "Description of the health hazard. Commonly found in: FDA recall notice."
     },
     "units_affected": {
       "type": "number",
-      "description": "Approximate number of units affected.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "FDA recall notice",
-        "press release"
-      ]
+      "description": "Approximate number of units affected. Commonly found in: FDA recall notice, press release."
     },
     "lot_numbers": {
       "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "Affected lot or batch numbers.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "FDA recall notice"
-      ]
+      "description": "Affected lot or batch numbers. Commonly found in: FDA recall notice."
     },
     "distribution_scope": {
       "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "Geographic scope of distribution.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "FDA recall notice"
-      ]
+      "description": "Geographic scope of distribution. Commonly found in: FDA recall notice."
     },
     "action_required": {
       "type": "string",
-      "description": "Required action for customers or healthcare providers.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "FDA recall notice",
-        "press release"
-      ]
+      "description": "Required action for customers or healthcare providers. Commonly found in: FDA recall notice, press release."
     },
     "patient_risk_level": {
       "type": "string",
-      "enum": [
-        "high",
-        "medium",
-        "low"
-      ],
-      "description": "Assessed risk level to patients.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "FDA recall classification"
-      ]
+      "enum": ["high", "medium", "low"],
+      "description": "Assessed risk level to patients. Commonly found in: FDA recall classification."
     },
     "press_release_url": {
       "type": "string",
-      "description": "URL of the manufacturer press release.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "manufacturer website",
-        "FDA press release"
-      ]
+      "description": "URL of the manufacturer press release. Commonly found in: manufacturer website, FDA press release."
     },
     "source_url": {
       "type": "string",
-      "description": "URL of the recall notice source.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "FDA recall database URL"
-      ]
+      "description": "URL of the recall notice source. Commonly found in: FDA recall database URL."
     },
     "extracted_at": {
       "type": "string",
       "format": "date-time",
-      "description": "ISO 8601 timestamp when this record was extracted.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "scraper metadata"
-      ]
+      "description": "ISO 8601 timestamp when this record was extracted. Commonly found in: scraper metadata."
     }
   },
-  "required": [
-    "device_name",
-    "manufacturer_name",
-    "recall_class",
-    "recall_status",
-    "initiated_date",
-    "reason_for_recall",
-    "source_url",
-    "extracted_at"
-  ]
+  "required": ["device_name", "manufacturer_name", "recall_class", "recall_status", "initiated_date", "reason_for_recall", "source_url", "extracted_at"]
 }

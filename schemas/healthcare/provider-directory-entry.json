@@ -7,289 +7,133 @@
   "properties": {
     "npi": {
       "type": "string",
-      "description": "National Provider Identifier (NPI).",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "NPI registry",
-        "provider directory"
-      ]
+      "description": "National Provider Identifier (NPI). Commonly found in: NPI registry, provider directory."
     },
     "provider_type": {
       "type": "string",
-      "enum": [
-        "physician",
-        "np",
-        "pa",
-        "therapist",
-        "dentist",
-        "other"
-      ],
-      "description": "Type of healthcare provider.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "NPI registry"
-      ]
+      "enum": ["physician", "np", "pa", "therapist", "dentist", "other"],
+      "description": "Type of healthcare provider. Commonly found in: provider directory, NPI registry."
     },
     "first_name": {
       "type": "string",
-      "description": "Provider's first name.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "profile page"
-      ]
+      "description": "Provider's first name. Commonly found in: provider directory, profile page."
     },
     "last_name": {
       "type": "string",
-      "description": "Provider's last name.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "profile page"
-      ]
+      "description": "Provider's last name. Commonly found in: provider directory, profile page."
     },
     "credentials": {
       "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "Professional credentials (e.g., MD, DO, PhD).",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "profile page"
-      ]
+      "description": "Professional credentials (e.g., MD, DO, PhD). Commonly found in: provider directory, profile page."
     },
     "specialty_primary": {
       "type": "string",
-      "description": "Primary medical specialty.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "NPI registry"
-      ]
+      "description": "Primary medical specialty. Commonly found in: provider directory, NPI registry."
     },
     "specialty_secondary": {
       "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "Secondary specialties or subspecialties.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "profile page"
-      ]
+      "description": "Secondary specialties or subspecialties. Commonly found in: provider directory, profile page."
     },
     "gender": {
       "type": "string",
-      "description": "Provider's gender.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "profile page"
-      ]
+      "description": "Provider's gender. Commonly found in: provider directory, profile page."
     },
     "languages": {
       "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "Languages spoken by the provider.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "profile page"
-      ]
+      "description": "Languages spoken by the provider. Commonly found in: provider directory, profile page."
     },
     "accepting_new_patients": {
       "type": "boolean",
-      "description": "Whether the provider is accepting new patients.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "appointment booking"
-      ]
+      "description": "Whether the provider is accepting new patients. Commonly found in: provider directory, appointment booking."
     },
     "telehealth_available": {
       "type": "boolean",
-      "description": "Whether telehealth appointments are available.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "profile page"
-      ]
+      "description": "Whether telehealth appointments are available. Commonly found in: provider directory, profile page."
     },
     "accepting_medicaid": {
       "type": "boolean",
-      "description": "Whether the provider accepts Medicaid.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "insurance info"
-      ]
+      "description": "Whether the provider accepts Medicaid. Commonly found in: provider directory, insurance info."
     },
     "accepting_medicare": {
       "type": "boolean",
-      "description": "Whether the provider accepts Medicare.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "insurance info"
-      ]
+      "description": "Whether the provider accepts Medicare. Commonly found in: provider directory, insurance info."
     },
     "group_practice_name": {
       "type": "string",
-      "description": "Name of the group practice or medical group.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "profile page"
-      ]
+      "description": "Name of the group practice or medical group. Commonly found in: provider directory, profile page."
     },
     "hospital_affiliations": {
       "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "Hospitals where the provider has admitting privileges.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "hospital website"
-      ]
+      "description": "Hospitals where the provider has admitting privileges. Commonly found in: provider directory, hospital website."
     },
     "address_street": {
       "type": "string",
-      "description": "Street address of the practice.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "Google Maps"
-      ]
+      "description": "Street address of the practice. Commonly found in: provider directory, Google Maps."
     },
     "address_city": {
       "type": "string",
-      "description": "City of the practice.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "Google Maps"
-      ]
+      "description": "City of the practice. Commonly found in: provider directory, Google Maps."
     },
     "address_state": {
       "type": "string",
-      "description": "State of the practice.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "NPI registry"
-      ]
+      "description": "State of the practice. Commonly found in: provider directory, NPI registry."
     },
     "address_zip": {
       "type": "string",
-      "description": "ZIP code of the practice.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "NPI registry"
-      ]
+      "description": "ZIP code of the practice. Commonly found in: provider directory, NPI registry."
     },
     "latitude": {
       "type": "number",
-      "description": "Latitude coordinate of the practice.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "geocoding API",
-        "Google Maps"
-      ]
+      "description": "Latitude coordinate of the practice. Commonly found in: geocoding API, Google Maps."
     },
     "longitude": {
       "type": "number",
-      "description": "Longitude coordinate of the practice.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "geocoding API",
-        "Google Maps"
-      ]
+      "description": "Longitude coordinate of the practice. Commonly found in: geocoding API, Google Maps."
     },
     "phone": {
       "type": "string",
-      "description": "Practice phone number.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "profile page"
-      ]
+      "description": "Practice phone number. Commonly found in: provider directory, profile page."
     },
     "website": {
       "type": "string",
-      "description": "Practice website URL.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "profile page"
-      ]
+      "description": "Practice website URL. Commonly found in: provider directory, profile page."
     },
     "insurances_accepted": {
       "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "Insurance plans accepted.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "provider directory",
-        "insurance section"
-      ]
+      "description": "Insurance plans accepted. Commonly found in: provider directory, insurance section."
     },
     "review_rating": {
       "type": "number",
-      "description": "Average patient review rating.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "Healthgrades",
-        "Zocdoc",
-        "review platform"
-      ]
+      "description": "Average patient review rating. Commonly found in: Healthgrades, Zocdoc, review platform."
     },
     "review_count": {
       "type": "number",
-      "description": "Total number of patient reviews.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": [
-        "Healthgrades",
-        "Zocdoc",
-        "review platform"
-      ]
+      "description": "Total number of patient reviews. Commonly found in: Healthgrades, Zocdoc, review platform."
     },
     "source_url": {
       "type": "string",
-      "description": "URL of the provider's directory profile.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "provider directory URL"
-      ]
+      "description": "URL of the provider's directory profile. Commonly found in: provider directory URL."
     },
     "extracted_at": {
       "type": "string",
       "format": "date-time",
-      "description": "ISO 8601 timestamp when this record was extracted.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "scraper metadata"
-      ]
+      "description": "ISO 8601 timestamp when this record was extracted. Commonly found in: scraper metadata."
     }
   },
-  "required": [
-    "provider_type",
-    "first_name",
-    "last_name",
-    "specialty_primary",
-    "address_city",
-    "address_state",
-    "source_url",
-    "extracted_at"
-  ]
+  "required": ["provider_type", "first_name", "last_name", "specialty_primary", "address_city", "address_state", "source_url", "extracted_at"]
 }
