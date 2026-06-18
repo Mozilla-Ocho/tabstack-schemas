@@ -1,0 +1,150 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/social-content/social-profile.json",
+  "title": "Social Profile",
+  "description": "Platform social profile (LinkedIn company, Twitter/X, etc.)",
+  "type": "object",
+  "properties": {
+    "platform": {
+      "type": "string",
+      "description": "The social platform this profile belongs to.",
+      "enum": [
+        "linkedin",
+        "twitter",
+        "x",
+        "github",
+        "instagram",
+        "youtube",
+        "tiktok",
+        "other"
+      ],
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "linkedin.com/company",
+        "twitter.com",
+        "x.com"
+      ]
+    },
+    "profile_type": {
+      "type": "string",
+      "description": "Whether this profile belongs to a person, company, or organization.",
+      "enum": [
+        "person",
+        "company",
+        "organization"
+      ],
+      "x-tabstack-priority": "required"
+    },
+    "username_or_handle": {
+      "type": "string",
+      "description": "The username or @handle for this profile.",
+      "x-tabstack-priority": "required"
+    },
+    "display_name": {
+      "type": "string",
+      "description": "The public display name of the profile.",
+      "x-tabstack-priority": "required"
+    },
+    "bio": {
+      "type": "string",
+      "description": "Short biography or description text on the profile.",
+      "x-tabstack-priority": "optional"
+    },
+    "follower_count": {
+      "type": "number",
+      "description": "Number of followers.",
+      "x-tabstack-priority": "optional"
+    },
+    "following_count": {
+      "type": "number",
+      "description": "Number of accounts the profile is following.",
+      "x-tabstack-priority": "optional"
+    },
+    "post_count": {
+      "type": "number",
+      "description": "Total number of posts or tweets published.",
+      "x-tabstack-priority": "optional"
+    },
+    "verified": {
+      "type": "boolean",
+      "description": "Whether the profile has a verified badge.",
+      "x-tabstack-priority": "optional"
+    },
+    "website_url": {
+      "type": "string",
+      "description": "External website URL listed on the profile.",
+      "x-tabstack-priority": "optional"
+    },
+    "location": {
+      "type": "string",
+      "description": "Self-reported location of the profile.",
+      "x-tabstack-priority": "optional"
+    },
+    "founded_year": {
+      "type": "number",
+      "description": "Year the company was founded. Applicable to company profiles.",
+      "x-tabstack-priority": "optional"
+    },
+    "employee_count_range": {
+      "type": "string",
+      "description": "Employee count range for company profiles (e.g., '11-50').",
+      "x-tabstack-priority": "optional"
+    },
+    "industry": {
+      "type": "string",
+      "description": "Industry classification for company profiles.",
+      "x-tabstack-priority": "optional"
+    },
+    "profile_url": {
+      "type": "string",
+      "description": "Canonical URL of the profile page.",
+      "x-tabstack-priority": "required"
+    },
+    "avatar_url": {
+      "type": "string",
+      "description": "URL to the profile avatar / profile picture.",
+      "x-tabstack-priority": "optional"
+    },
+    "banner_url": {
+      "type": "string",
+      "description": "URL to the profile banner / header image.",
+      "x-tabstack-priority": "optional"
+    },
+    "pinned_post_url": {
+      "type": "string",
+      "description": "URL of the pinned post on the profile.",
+      "x-tabstack-priority": "optional"
+    },
+    "engagement_rate_pct": {
+      "type": "number",
+      "description": "Engagement rate as a percentage.",
+      "x-tabstack-priority": "optional"
+    },
+    "snapshot_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the profile data was snapshotted.",
+      "x-tabstack-priority": "required"
+    },
+    "source_url": {
+      "type": "string",
+      "description": "The URL of the page this data was sourced from.",
+      "x-tabstack-priority": "required"
+    },
+    "extracted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this record was extracted.",
+      "x-tabstack-priority": "required"
+    }
+  },
+  "required": [
+    "platform",
+    "profile_type",
+    "username_or_handle",
+    "display_name",
+    "profile_url",
+    "source_url",
+    "extracted_at"
+  ]
+}

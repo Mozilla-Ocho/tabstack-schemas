@@ -1,0 +1,160 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/social-content/software-review.json",
+  "title": "Software Review",
+  "description": "Software review from G2, Capterra, Trustpilot, etc.",
+  "type": "object",
+  "properties": {
+    "platform": {
+      "type": "string",
+      "description": "The review platform where this review was published.",
+      "enum": [
+        "g2",
+        "capterra",
+        "trustpilot",
+        "getapp",
+        "software_advice",
+        "other"
+      ],
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "g2.com/products",
+        "capterra.com/software",
+        "trustpilot.com"
+      ]
+    },
+    "product_name": {
+      "type": "string",
+      "description": "Name of the software product being reviewed.",
+      "x-tabstack-priority": "required"
+    },
+    "product_slug": {
+      "type": "string",
+      "description": "URL slug or identifier for the product on the review platform.",
+      "x-tabstack-priority": "optional"
+    },
+    "product_url": {
+      "type": "string",
+      "description": "URL to the product listing on the review platform.",
+      "x-tabstack-priority": "optional"
+    },
+    "reviewer_name": {
+      "type": "string",
+      "description": "Name or alias of the reviewer.",
+      "x-tabstack-priority": "optional"
+    },
+    "reviewer_title": {
+      "type": "string",
+      "description": "Job title of the reviewer.",
+      "x-tabstack-priority": "optional"
+    },
+    "reviewer_company_size": {
+      "type": "string",
+      "description": "Company size bracket of the reviewer's employer.",
+      "enum": [
+        "1-10",
+        "11-50",
+        "51-200",
+        "201-1000",
+        "1001-5000",
+        "5001+"
+      ],
+      "x-tabstack-priority": "optional"
+    },
+    "reviewer_industry": {
+      "type": "string",
+      "description": "Industry of the reviewer's company.",
+      "x-tabstack-priority": "optional"
+    },
+    "reviewer_verified": {
+      "type": "boolean",
+      "description": "Whether the reviewer identity has been verified by the platform.",
+      "x-tabstack-priority": "optional"
+    },
+    "rating_overall": {
+      "type": "number",
+      "description": "Overall rating given by the reviewer, out of 5.",
+      "x-tabstack-priority": "required"
+    },
+    "rating_ease_of_use": {
+      "type": "number",
+      "description": "Ease-of-use rating out of 5.",
+      "x-tabstack-priority": "optional"
+    },
+    "rating_features": {
+      "type": "number",
+      "description": "Features rating out of 5.",
+      "x-tabstack-priority": "optional"
+    },
+    "rating_customer_support": {
+      "type": "number",
+      "description": "Customer support rating out of 5.",
+      "x-tabstack-priority": "optional"
+    },
+    "rating_value_for_money": {
+      "type": "number",
+      "description": "Value-for-money rating out of 5.",
+      "x-tabstack-priority": "optional"
+    },
+    "review_title": {
+      "type": "string",
+      "description": "Title or headline of the review.",
+      "x-tabstack-priority": "optional"
+    },
+    "review_body": {
+      "type": "string",
+      "description": "Full text body of the review.",
+      "x-tabstack-priority": "optional"
+    },
+    "pros": {
+      "type": "string",
+      "description": "Pros section of the review.",
+      "x-tabstack-priority": "optional"
+    },
+    "cons": {
+      "type": "string",
+      "description": "Cons section of the review.",
+      "x-tabstack-priority": "optional"
+    },
+    "use_case": {
+      "type": "string",
+      "description": "Described use case or problem the reviewer is solving.",
+      "x-tabstack-priority": "optional"
+    },
+    "review_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the review was published (YYYY-MM-DD).",
+      "x-tabstack-priority": "required"
+    },
+    "helpful_count": {
+      "type": "number",
+      "description": "Number of users who marked this review as helpful.",
+      "x-tabstack-priority": "optional"
+    },
+    "verified_purchase": {
+      "type": "boolean",
+      "description": "Whether the reviewer is a verified purchaser of the product.",
+      "x-tabstack-priority": "optional"
+    },
+    "source_url": {
+      "type": "string",
+      "description": "The URL of the page this data was sourced from.",
+      "x-tabstack-priority": "required"
+    },
+    "extracted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this record was extracted.",
+      "x-tabstack-priority": "required"
+    }
+  },
+  "required": [
+    "platform",
+    "product_name",
+    "rating_overall",
+    "review_date",
+    "source_url",
+    "extracted_at"
+  ]
+}
