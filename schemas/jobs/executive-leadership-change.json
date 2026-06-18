@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.io/jobs/executive-leadership-change.json",
+  "title": "Executive Leadership Change",
+  "description": "Schema for tracking executive and leadership role transitions at companies.",
+  "type": "object",
+  "properties": {
+    "person_name": {
+      "type": "string",
+      "description": "Full name of the executive. Commonly found in: press release headline, news article body, LinkedIn announcement."
+    },
+    "person_linkedin_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "LinkedIn profile URL of the executive. Commonly found in: LinkedIn post link, executive bio section, company announcement."
+    },
+    "company_name": {
+      "type": "string",
+      "description": "Name of the company where the change occurred. Commonly found in: press release header, news article, LinkedIn company tag."
+    },
+    "company_domain": {
+      "type": "string",
+      "description": "Website domain of the company. Commonly found in: company website link, press release footer, company profile."
+    },
+    "previous_title": {
+      "type": "string",
+      "description": "Executive's previous title at the company or prior company. Commonly found in: press release body, LinkedIn profile history, news article bio."
+    },
+    "previous_company": {
+      "type": "string",
+      "description": "Executive's previous employer, if different. Commonly found in: press release body, LinkedIn work history, executive bio."
+    },
+    "new_title": {
+      "type": "string",
+      "description": "Executive's new title. Commonly found in: press release headline, announcement title, LinkedIn update."
+    },
+    "new_company": {
+      "type": "string",
+      "description": "Company where the executive is joining or taking the new role. Commonly found in: press release header, news article headline, LinkedIn company tag."
+    },
+    "change_type": {
+      "type": "string",
+      "enum": ["promotion", "new_hire", "departure", "retirement", "interim", "other"],
+      "description": "Type of leadership change. Commonly found in: press release context, news article classification, announcement language."
+    },
+    "announcement_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the leadership change was publicly announced. Commonly found in: press release date, article publish date, announcement timestamp."
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the leadership change takes effect. Commonly found in: press release body, announcement details, effective date mention."
+    },
+    "announcement_source_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the original announcement source. Commonly found in: press release URL, news article link, LinkedIn post URL."
+    },
+    "announcement_type": {
+      "type": "string",
+      "enum": ["press_release", "linkedin_post", "sec_filing", "news_article", "other"],
+      "description": "Type of source for the announcement. Commonly found in: site domain classification, content type, source format."
+    },
+    "quoted_statement": {
+      "type": "string",
+      "description": "Notable quoted statement from the announcement. Commonly found in: press release quote block, news article quote, executive statement."
+    },
+    "page_title": {
+      "type": "string",
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
+      "type": "string",
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
+    }
+  },
+  "required": ["person_name", "company_name", "new_title", "new_company", "change_type", "announcement_date"]
+}

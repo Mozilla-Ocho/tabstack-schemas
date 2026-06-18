@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.io/jobs/layoff-event.json",
+  "title": "Layoff Event",
+  "description": "Schema for company layoff and workforce reduction event records.",
+  "type": "object",
+  "properties": {
+    "company_name": {
+      "type": "string",
+      "description": "Name of the company conducting the layoff. Commonly found in: press release headline, news article title, layoff tracker entry."
+    },
+    "company_domain": {
+      "type": "string",
+      "description": "Website domain of the company. Commonly found in: company website link, press release footer, company profile."
+    },
+    "company_industry": {
+      "type": "string",
+      "description": "Industry sector of the company. Commonly found in: company profile, news article classification, layoff tracker category."
+    },
+    "headcount_affected": {
+      "type": "number",
+      "description": "Number of employees affected by the layoff. Commonly found in: press release body, news article headline, layoff tracker count."
+    },
+    "headcount_affected_pct": {
+      "type": "number",
+      "description": "Percentage of total workforce affected. Commonly found in: press release body, news article body, workforce reduction percentage."
+    },
+    "affected_departments": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Departments or teams affected by the layoff. Commonly found in: press release body, news article details, layoff announcement."
+    },
+    "affected_locations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Office locations affected by the layoff. Commonly found in: press release body, news article details, WARN notice."
+    },
+    "announcement_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the layoff was publicly announced. Commonly found in: press release date, article publish date, announcement timestamp."
+    },
+    "effective_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the layoffs took or take effect. Commonly found in: press release body, WARN notice effective date, announcement details."
+    },
+    "layoff_type": {
+      "type": "string",
+      "enum": ["restructuring", "performance", "acquisition", "economic", "other"],
+      "description": "Stated reason or type of layoff. Commonly found in: press release body, news article analysis, company statement."
+    },
+    "severance_weeks": {
+      "type": "number",
+      "description": "Number of weeks of severance pay offered. Commonly found in: press release body, employee communication, news article details."
+    },
+    "rehire_eligible": {
+      "type": "boolean",
+      "description": "Whether laid-off employees are eligible for rehire. Commonly found in: press release body, employee FAQ, company statement."
+    },
+    "source_type": {
+      "type": "string",
+      "enum": ["press_release", "news_article", "sec_filing", "social", "other"],
+      "description": "Type of source for the layoff information. Commonly found in: site domain classification, content type, source format."
+    },
+    "ceo_statement": {
+      "type": "string",
+      "description": "Statement or message from the CEO about the layoff. Commonly found in: press release CEO quote, internal memo published externally, news article quote."
+    },
+    "page_title": {
+      "type": "string",
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
+      "type": "string",
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
+    }
+  },
+  "required": ["company_name", "announcement_date"]
+}
