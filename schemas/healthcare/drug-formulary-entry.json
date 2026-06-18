@@ -34,7 +34,7 @@
     },
     "formulary_tier": {
       "type": "string",
-      "enum": ["1", "2", "3", "4", "5", "specialty"],
+      "enum": ["1", "2", "3", "4", "5", "specialty", "other"],
       "description": "Formulary tier which determines cost-sharing. Commonly found in: formulary document, pharmacy benefit summary."
     },
     "prior_auth_required": {
@@ -77,14 +77,14 @@
       "type": "string",
       "description": "DEA controlled substance schedule if applicable. Commonly found in: DEA database, drug label."
     },
-    "source_url": {
+    "page_title": {
       "type": "string",
-      "description": "URL of the source formulary page. Commonly found in: insurance plan formulary page."
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
     },
-    "extracted_at": {
+    "favicon": {
       "type": "string",
-      "format": "date-time",
-      "description": "ISO 8601 timestamp when this record was extracted. Commonly found in: scraper metadata."
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
     }
   },
   "$defs": {
@@ -123,5 +123,5 @@
       "required": ["quantity", "days_supply"]
     }
   },
-  "required": ["drug_name_generic", "source_url", "extracted_at"]
+  "required": ["drug_name_generic"]
 }

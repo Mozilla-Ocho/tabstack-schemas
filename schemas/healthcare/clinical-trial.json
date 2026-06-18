@@ -31,17 +31,17 @@
     },
     "status": {
       "type": "string",
-      "enum": ["recruiting", "active_not_recruiting", "completed", "terminated", "withdrawn", "suspended"],
+      "enum": ["recruiting", "active_not_recruiting", "completed", "terminated", "withdrawn", "suspended", "other"],
       "description": "Current recruitment status of the trial. Commonly found in: ClinicalTrials.gov status field."
     },
     "phase": {
       "type": "string",
-      "enum": ["1", "1_2", "2", "2_3", "3", "4", "na"],
+      "enum": ["1", "1_2", "2", "2_3", "3", "4", "na", "other"],
       "description": "Clinical trial phase. Commonly found in: ClinicalTrials.gov phase field."
     },
     "study_type": {
       "type": "string",
-      "enum": ["interventional", "observational"],
+      "enum": ["interventional", "observational", "other"],
       "description": "Type of study design. Commonly found in: ClinicalTrials.gov study type field."
     },
     "conditions": {
@@ -106,14 +106,14 @@
       "type": "boolean",
       "description": "Whether results have been posted. Commonly found in: ClinicalTrials.gov results section."
     },
-    "source_url": {
+    "page_title": {
       "type": "string",
-      "description": "URL of the source trial registry page. Commonly found in: ClinicalTrials.gov trial URL."
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
     },
-    "extracted_at": {
+    "favicon": {
       "type": "string",
-      "format": "date-time",
-      "description": "ISO 8601 timestamp when this record was extracted. Commonly found in: scraper metadata."
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
     }
   },
   "$defs": {
@@ -175,5 +175,5 @@
       "required": ["city", "country"]
     }
   },
-  "required": ["nct_id", "title", "sponsor_name", "status", "conditions", "source_url", "extracted_at"]
+  "required": ["nct_id", "title", "sponsor_name", "status", "conditions"]
 }
