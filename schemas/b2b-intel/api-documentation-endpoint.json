@@ -9,12 +9,29 @@
       "type": "object",
       "description": "An API request parameter.",
       "properties": {
-        "name": { "type": "string", "description": "Parameter name." },
-        "location": { "type": "string", "description": "Where the parameter is passed (query, path, header, body)." },
-        "type": { "type": "string", "description": "Data type of the parameter." },
-        "required": { "type": "boolean", "description": "Whether this parameter is required." },
-        "description": { "type": "string", "description": "Description of the parameter." },
-        "example": { "description": "Example value for the parameter." }
+        "name": {
+          "type": "string",
+          "description": "Parameter name."
+        },
+        "location": {
+          "type": "string",
+          "description": "Where the parameter is passed (query, path, header, body)."
+        },
+        "type": {
+          "type": "string",
+          "description": "Data type of the parameter."
+        },
+        "required": {
+          "type": "boolean",
+          "description": "Whether this parameter is required."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the parameter."
+        },
+        "example": {
+          "description": "Example value for the parameter."
+        }
       },
       "required": ["name"]
     },
@@ -22,8 +39,14 @@
       "type": "object",
       "description": "An HTTP response code and its description.",
       "properties": {
-        "code": { "type": "number", "description": "HTTP status code." },
-        "description": { "type": "string", "description": "Description of this response code." }
+        "code": {
+          "type": "number",
+          "description": "HTTP status code."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of this response code."
+        }
       },
       "required": ["code"]
     }
@@ -31,125 +54,91 @@
   "properties": {
     "company_name": {
       "type": "string",
-      "description": "Name of the company providing the API.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": ["docs page header", "API brand name", "site logo"]
+      "description": "Name of the company providing the API. Commonly found in: docs page header, API brand name, site logo."
     },
     "company_domain": {
       "type": "string",
-      "description": "Website domain of the API provider.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["site URL", "docs URL domain", "canonical URL"]
+      "description": "Website domain of the API provider. Commonly found in: site URL, docs URL domain, canonical URL."
     },
     "api_name": {
       "type": "string",
-      "description": "Name of the API product.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["API docs header", "API product name", "breadcrumb"]
+      "description": "Name of the API product. Commonly found in: API docs header, API product name, breadcrumb."
     },
     "api_version": {
       "type": "string",
-      "description": "Version of the API (e.g., v1, 2024-01-01).",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["API version badge", "docs navigation", "URL path"]
+      "description": "Version of the API (e.g., v1, 2024-01-01). Commonly found in: API version badge, docs navigation, URL path."
     },
     "endpoint_path": {
       "type": "string",
-      "description": "URL path of the API endpoint (e.g., /v1/users/{id}).",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": ["endpoint path display", "API reference heading", "code snippet URL"]
+      "description": "URL path of the API endpoint (e.g., /v1/users/{id}). Commonly found in: endpoint path display, API reference heading, code snippet URL."
     },
     "http_method": {
       "type": "string",
       "enum": ["GET", "POST", "PUT", "PATCH", "DELETE"],
-      "description": "HTTP method for the endpoint.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": ["HTTP method badge", "endpoint label", "code example"]
+      "description": "HTTP method for the endpoint. Commonly found in: HTTP method badge, endpoint label, code example."
     },
     "title": {
       "type": "string",
-      "description": "Short title or name for the endpoint.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["endpoint section heading", "API reference title", "sidebar navigation item"]
+      "description": "Short title or name for the endpoint. Commonly found in: endpoint section heading, API reference title, sidebar navigation item."
     },
     "description": {
       "type": "string",
-      "description": "Description of what the endpoint does.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["endpoint description text", "API reference body", "docs paragraph"]
+      "description": "Description of what the endpoint does. Commonly found in: endpoint description text, API reference body, docs paragraph."
     },
     "auth_type": {
       "type": "string",
       "enum": ["api_key", "oauth2", "bearer", "basic", "none"],
-      "description": "Authentication type required for this endpoint.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["authentication section", "auth badge", "security requirements"]
+      "description": "Authentication type required for this endpoint. Commonly found in: authentication section, auth badge, security requirements."
     },
     "parameters": {
       "type": "array",
-      "items": { "$ref": "#/$defs/parameter" },
-      "description": "List of request parameters for this endpoint.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["parameters table", "request parameters section", "query params list"]
+      "items": {
+        "$ref": "#/$defs/parameter"
+      },
+      "description": "List of request parameters for this endpoint. Commonly found in: parameters table, request parameters section, query params list."
     },
     "request_body_schema": {
       "type": "object",
-      "description": "JSON Schema or description of the request body.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["request body section", "body schema table", "example request"]
+      "description": "JSON Schema or description of the request body. Commonly found in: request body section, body schema table, example request."
     },
     "response_codes": {
       "type": "array",
-      "items": { "$ref": "#/$defs/response_code" },
-      "description": "HTTP response codes returned by this endpoint.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["response codes table", "returns section", "status codes list"]
+      "items": {
+        "$ref": "#/$defs/response_code"
+      },
+      "description": "HTTP response codes returned by this endpoint. Commonly found in: response codes table, returns section, status codes list."
     },
     "rate_limit_requests": {
       "type": "number",
-      "description": "Number of requests allowed in the rate limit window.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["rate limits section", "throttling details", "API limits table"]
+      "description": "Number of requests allowed in the rate limit window. Commonly found in: rate limits section, throttling details, API limits table."
     },
     "rate_limit_window": {
       "type": "string",
-      "description": "Time window for the rate limit (e.g., '1 minute', '1 hour').",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["rate limits section", "throttling details", "API limits table"]
+      "description": "Time window for the rate limit (e.g., '1 minute', '1 hour'). Commonly found in: rate limits section, throttling details, API limits table."
     },
     "is_deprecated": {
       "type": "boolean",
-      "description": "Whether this endpoint is deprecated.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["deprecated badge", "deprecation notice", "endpoint warning banner"]
+      "description": "Whether this endpoint is deprecated. Commonly found in: deprecated badge, deprecation notice, endpoint warning banner."
     },
     "deprecation_date": {
       "type": "string",
       "format": "date",
-      "description": "Date this endpoint was or will be deprecated.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["deprecation notice date", "sunset date field", "migration guide"]
+      "description": "Date this endpoint was or will be deprecated. Commonly found in: deprecation notice date, sunset date field, migration guide."
     },
     "docs_url": {
       "type": "string",
       "format": "uri",
-      "description": "URL of the documentation page for this endpoint.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["canonical link", "docs navigation link", "source page URL"]
+      "description": "URL of the documentation page for this endpoint. Commonly found in: canonical link, docs navigation link, source page URL."
     },
     "source_url": {
       "type": "string",
       "format": "uri",
-      "description": "URL of the page from which this data was extracted.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": ["browser URL bar", "canonical link tag", "og:url meta tag"]
+      "description": "URL of the page from which this data was extracted. Commonly found in: browser URL bar, canonical link tag, og:url meta tag."
     },
     "extracted_at": {
       "type": "string",
       "format": "date-time",
-      "description": "ISO 8601 timestamp when this data was extracted.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": ["extraction metadata", "scraper system timestamp"]
+      "description": "ISO 8601 timestamp when this data was extracted. Commonly found in: extraction metadata, scraper system timestamp."
     }
   },
   "required": ["company_name", "endpoint_path", "http_method", "source_url", "extracted_at"]

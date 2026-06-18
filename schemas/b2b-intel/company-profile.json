@@ -7,184 +7,138 @@
   "properties": {
     "name": {
       "type": "string",
-      "description": "Legal or commonly-used company name.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": ["company profile header", "about page", "og:site_name meta tag"]
+      "description": "Legal or commonly-used company name. Commonly found in: company profile header, about page, og:site_name meta tag."
     },
     "domain": {
       "type": "string",
-      "description": "Primary website domain of the company.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": ["website URL", "company profile link", "contact page"]
+      "description": "Primary website domain of the company. Commonly found in: website URL, company profile link, contact page."
     },
     "description": {
       "type": "string",
-      "description": "Short description or tagline of the company.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["company about section", "meta description tag", "LinkedIn summary"]
+      "description": "Short description or tagline of the company. Commonly found in: company about section, meta description tag, LinkedIn summary."
     },
     "founded_year": {
       "type": "number",
-      "description": "Year the company was founded.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["company profile details", "about page", "LinkedIn company info"]
+      "description": "Year the company was founded. Commonly found in: company profile details, about page, LinkedIn company info."
     },
     "headquarters_city": {
       "type": "string",
-      "description": "City of the company's headquarters.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["contact page", "company profile", "LinkedIn location field"]
+      "description": "City of the company's headquarters. Commonly found in: contact page, company profile, LinkedIn location field."
     },
     "headquarters_country": {
       "type": "string",
-      "description": "Country of the company's headquarters.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["contact page", "company profile", "LinkedIn location field"]
+      "description": "Country of the company's headquarters. Commonly found in: contact page, company profile, LinkedIn location field."
     },
     "employee_count": {
       "type": "number",
-      "description": "Approximate number of employees.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["LinkedIn company stats", "company profile details", "about page"]
+      "description": "Approximate number of employees. Commonly found in: LinkedIn company stats, company profile details, about page."
     },
     "employee_range": {
       "type": "string",
       "enum": ["1-10", "11-50", "51-200", "201-500", "501-1000", "1000+"],
-      "description": "Employee count range band.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["LinkedIn company size field", "company profile size indicator", "data provider"]
+      "description": "Employee count range band. Commonly found in: LinkedIn company size field, company profile size indicator, data provider."
     },
     "industry": {
       "type": "string",
-      "description": "Primary industry of the company.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["LinkedIn industry field", "company profile", "data provider category"]
+      "description": "Primary industry of the company. Commonly found in: LinkedIn industry field, company profile, data provider category."
     },
     "categories": {
       "type": "array",
-      "items": { "type": "string" },
-      "description": "List of category or vertical tags for the company.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["Crunchbase tags", "company profile categories", "data provider labels"]
+      "items": {
+        "type": "string"
+      },
+      "description": "List of category or vertical tags for the company. Commonly found in: Crunchbase tags, company profile categories, data provider labels."
     },
     "funding_stage": {
       "type": "string",
       "enum": ["pre_seed", "seed", "series_a", "series_b", "series_c", "series_d", "series_e", "series_f", "public", "acquired", "bootstrapped"],
-      "description": "Latest funding stage of the company.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["Crunchbase funding section", "company profile funding info", "press release"]
+      "description": "Latest funding stage of the company. Commonly found in: Crunchbase funding section, company profile funding info, press release."
     },
     "total_funding_usd": {
       "type": "number",
-      "description": "Total funding raised in USD.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["Crunchbase total funding", "company profile funding section", "press release"]
+      "description": "Total funding raised in USD. Commonly found in: Crunchbase total funding, company profile funding section, press release."
     },
     "last_funding_date": {
       "type": "string",
       "format": "date",
-      "description": "Date of the most recent funding round.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["Crunchbase funding history", "latest funding date field", "press release date"]
+      "description": "Date of the most recent funding round. Commonly found in: Crunchbase funding history, latest funding date field, press release date."
     },
     "investors": {
       "type": "array",
-      "items": { "type": "string" },
-      "description": "List of known investors.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["Crunchbase investor list", "company profile investors section", "press release"]
+      "items": {
+        "type": "string"
+      },
+      "description": "List of known investors. Commonly found in: Crunchbase investor list, company profile investors section, press release."
     },
     "revenue_range": {
       "type": "string",
       "enum": ["<1M", "1-10M", "10-50M", "50-100M", "100M+"],
-      "description": "Estimated annual revenue range.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["data provider revenue estimate", "company profile revenue field", "market research"]
+      "description": "Estimated annual revenue range. Commonly found in: data provider revenue estimate, company profile revenue field, market research."
     },
     "is_public": {
       "type": "boolean",
-      "description": "Whether the company is publicly traded.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["stock ticker presence", "SEC filing link", "company profile status"]
+      "description": "Whether the company is publicly traded. Commonly found in: stock ticker presence, SEC filing link, company profile status."
     },
     "stock_ticker": {
       "type": "string",
-      "description": "Stock ticker symbol if publicly traded.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["company header ticker display", "investor relations page", "financial data widget"]
+      "description": "Stock ticker symbol if publicly traded. Commonly found in: company header ticker display, investor relations page, financial data widget."
     },
     "stock_exchange": {
       "type": "string",
-      "description": "Stock exchange where the company is listed.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["company profile", "investor relations page", "financial data widget"]
+      "description": "Stock exchange where the company is listed. Commonly found in: company profile, investor relations page, financial data widget."
     },
     "linkedin_url": {
       "type": "string",
       "format": "uri",
-      "description": "LinkedIn company page URL.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["company social links", "contact page", "footer social icons"]
+      "description": "LinkedIn company page URL. Commonly found in: company social links, contact page, footer social icons."
     },
     "twitter_handle": {
       "type": "string",
-      "description": "Twitter/X handle of the company.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["company social links", "contact page", "footer social icons"]
+      "description": "Twitter/X handle of the company. Commonly found in: company social links, contact page, footer social icons."
     },
     "github_org": {
       "type": "string",
-      "description": "GitHub organization name.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["company social links", "developer page", "open source section"]
+      "description": "GitHub organization name. Commonly found in: company social links, developer page, open source section."
     },
     "phone": {
       "type": "string",
-      "description": "Company main phone number.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["contact page", "footer", "about page"]
+      "description": "Company main phone number. Commonly found in: contact page, footer, about page."
     },
     "email": {
       "type": "string",
       "format": "email",
-      "description": "Company main contact email.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["contact page", "footer", "about page"]
+      "description": "Company main contact email. Commonly found in: contact page, footer, about page."
     },
     "technologies": {
       "type": "array",
-      "items": { "type": "string" },
-      "description": "Technologies detected in use by the company.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["BuiltWith data", "tech stack detection", "job postings"]
+      "items": {
+        "type": "string"
+      },
+      "description": "Technologies detected in use by the company. Commonly found in: BuiltWith data, tech stack detection, job postings."
     },
     "products": {
       "type": "array",
-      "items": { "type": "string" },
-      "description": "Names of products or services offered.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["products page", "navigation menu", "company overview"]
+      "items": {
+        "type": "string"
+      },
+      "description": "Names of products or services offered. Commonly found in: products page, navigation menu, company overview."
     },
     "competitors": {
       "type": "array",
-      "items": { "type": "string" },
-      "description": "List of known or identified competitors.",
-      "x-tabstack-priority": "optional",
-      "x-tabstack-source-hints": ["G2 competitors section", "Crunchbase similar companies", "analyst reports"]
+      "items": {
+        "type": "string"
+      },
+      "description": "List of known or identified competitors. Commonly found in: G2 competitors section, Crunchbase similar companies, analyst reports."
     },
     "source_url": {
       "type": "string",
       "format": "uri",
-      "description": "URL of the page from which this profile was extracted.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": ["browser URL bar", "canonical link tag", "og:url meta tag"]
+      "description": "URL of the page from which this profile was extracted. Commonly found in: browser URL bar, canonical link tag, og:url meta tag."
     },
     "extracted_at": {
       "type": "string",
       "format": "date-time",
-      "description": "ISO 8601 timestamp when this profile was extracted.",
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": ["extraction metadata", "scraper system timestamp"]
+      "description": "ISO 8601 timestamp when this profile was extracted. Commonly found in: extraction metadata, scraper system timestamp."
     }
   },
   "required": ["name", "domain", "source_url", "extracted_at"]
