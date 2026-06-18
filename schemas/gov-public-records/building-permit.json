@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/gov-public-records/building-permit.json",
+  "title": "Building Permit",
+  "description": "Building or construction permit record from a municipal or county permitting authority.",
+  "type": "object",
+  "properties": {
+    "permit_number": {
+      "type": "string",
+      "description": "Official permit number. Commonly found in: city permit portal, county records."
+    },
+    "permit_type": {
+      "type": "string",
+      "enum": ["new_construction", "addition", "renovation", "demolition", "electrical", "plumbing", "mechanical", "other"],
+      "description": "Type of permit. Commonly found in: permit portal, permit type field."
+    },
+    "permit_status": {
+      "type": "string",
+      "enum": ["applied", "approved", "issued", "inspected", "finaled", "expired", "withdrawn", "other"],
+      "description": "Current status of the permit. Commonly found in: permit portal, status field."
+    },
+    "address": {
+      "type": "string",
+      "description": "Street address of the permitted property. Commonly found in: permit portal, property address field."
+    },
+    "city": {
+      "type": "string",
+      "description": "City of the permitted property. Commonly found in: permit portal."
+    },
+    "county": {
+      "type": "string",
+      "description": "County of the permitted property. Commonly found in: permit portal, county records."
+    },
+    "state": {
+      "type": "string",
+      "description": "State of the permitted property. Commonly found in: permit portal."
+    },
+    "zip_code": {
+      "type": "string",
+      "description": "ZIP code of the permitted property. Commonly found in: permit portal, property address."
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Latitude coordinate of the property. Commonly found in: geocoding API, GIS data."
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Longitude coordinate of the property. Commonly found in: geocoding API, GIS data."
+    },
+    "parcel_number": {
+      "type": "string",
+      "description": "Assessor's parcel number (APN). Commonly found in: permit portal, county assessor."
+    },
+    "project_description": {
+      "type": "string",
+      "description": "Description of the construction project. Commonly found in: permit portal, permit description field."
+    },
+    "estimated_valuation_usd": {
+      "type": "number",
+      "description": "Estimated value of the construction work in USD. Commonly found in: permit portal, valuation field."
+    },
+    "square_footage": {
+      "type": "number",
+      "description": "Square footage of the construction area. Commonly found in: permit portal, project details."
+    },
+    "contractor_name": {
+      "type": "string",
+      "description": "Name of the licensed contractor. Commonly found in: permit portal, contractor section."
+    },
+    "contractor_license_number": {
+      "type": "string",
+      "description": "Contractor license number. Commonly found in: permit portal, contractor section."
+    },
+    "owner_name": {
+      "type": "string",
+      "description": "Name of the property owner. Commonly found in: permit portal, owner section."
+    },
+    "application_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date permit was applied for. Commonly found in: permit portal, dates section."
+    },
+    "issued_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date permit was issued. Commonly found in: permit portal, dates section."
+    },
+    "expiry_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date permit expires. Commonly found in: permit portal, dates section."
+    },
+    "final_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date permit was finaled. Commonly found in: permit portal, dates section."
+    },
+    "page_title": {
+      "type": "string",
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
+      "type": "string",
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
+    }
+  },
+  "required": ["permit_number", "permit_type", "permit_status", "address", "city", "state"]
+}

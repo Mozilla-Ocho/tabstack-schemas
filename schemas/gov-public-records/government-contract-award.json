@@ -1,0 +1,122 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/gov-public-records/government-contract-award.json",
+  "title": "Government Contract Award",
+  "description": "Federal or state government contract, grant, or other award from USASpending.gov or equivalent.",
+  "type": "object",
+  "properties": {
+    "award_id": {
+      "type": "string",
+      "description": "Unique award identifier. Commonly found in: USASpending.gov, SAM.gov, award notice."
+    },
+    "piid": {
+      "type": "string",
+      "description": "Procurement Instrument Identifier (PIID) for contracts. Commonly found in: USASpending.gov, FPDS."
+    },
+    "award_type": {
+      "type": "string",
+      "enum": ["contract", "grant", "loan", "idv", "other"],
+      "description": "Type of award. Commonly found in: USASpending.gov award type field."
+    },
+    "agency_name": {
+      "type": "string",
+      "description": "Name of the awarding government agency. Commonly found in: USASpending.gov, award notice, SAM.gov."
+    },
+    "agency_code": {
+      "type": "string",
+      "description": "Agency code. Commonly found in: USASpending.gov, FPDS agency codes."
+    },
+    "sub_agency_name": {
+      "type": "string",
+      "description": "Name of the sub-agency or office. Commonly found in: USASpending.gov, award notice."
+    },
+    "award_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the award. Commonly found in: USASpending.gov award date, FPDS."
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Period of performance start date. Commonly found in: USASpending.gov, contract document."
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Period of performance end date. Commonly found in: USASpending.gov, contract document."
+    },
+    "potential_total_value_usd": {
+      "type": "number",
+      "description": "Total potential value of the contract in USD. Commonly found in: USASpending.gov, FPDS."
+    },
+    "obligated_amount_usd": {
+      "type": "number",
+      "description": "Amount obligated in USD. Commonly found in: USASpending.gov obligated amount field."
+    },
+    "vendor_name": {
+      "type": "string",
+      "description": "Name of the vendor or awardee. Commonly found in: USASpending.gov, award notice, SAM.gov."
+    },
+    "vendor_domain": {
+      "type": "string",
+      "description": "Website domain of the vendor. Commonly found in: company website, SAM.gov entity."
+    },
+    "vendor_address": {
+      "type": "string",
+      "description": "Street address of the vendor. Commonly found in: USASpending.gov, SAM.gov entity."
+    },
+    "vendor_city": {
+      "type": "string",
+      "description": "City of the vendor. Commonly found in: USASpending.gov, SAM.gov entity."
+    },
+    "vendor_state": {
+      "type": "string",
+      "description": "State of the vendor. Commonly found in: USASpending.gov, SAM.gov entity."
+    },
+    "vendor_country": {
+      "type": "string",
+      "description": "Country of the vendor. Commonly found in: USASpending.gov, SAM.gov entity."
+    },
+    "vendor_size": {
+      "type": "string",
+      "enum": ["small", "large", "other"],
+      "description": "Business size of the vendor. Commonly found in: USASpending.gov, FPDS business size."
+    },
+    "naics_code": {
+      "type": "string",
+      "description": "NAICS code for the award. Commonly found in: USASpending.gov, FPDS."
+    },
+    "naics_description": {
+      "type": "string",
+      "description": "NAICS code description. Commonly found in: NAICS code lookup, USASpending.gov."
+    },
+    "psc_code": {
+      "type": "string",
+      "description": "Product and Service Code (PSC). Commonly found in: USASpending.gov, FPDS."
+    },
+    "award_description": {
+      "type": "string",
+      "description": "Description of the award. Commonly found in: award notice, USASpending.gov description field."
+    },
+    "set_aside_type": {
+      "type": "string",
+      "enum": ["small_business", "8a", "hubzone", "sdvosb", "wosb", "none", "other"],
+      "description": "Set-aside type for socioeconomic programs. Commonly found in: USASpending.gov, FPDS set-aside type."
+    },
+    "competitive_procedures": {
+      "type": "string",
+      "enum": ["full_and_open", "limited", "sole_source", "other"],
+      "description": "Competitive procedures used. Commonly found in: USASpending.gov, FPDS competition type."
+    },
+    "page_title": {
+      "type": "string",
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
+      "type": "string",
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
+    }
+  },
+  "required": ["award_id", "award_type", "agency_name", "award_date", "obligated_amount_usd", "vendor_name"]
+}

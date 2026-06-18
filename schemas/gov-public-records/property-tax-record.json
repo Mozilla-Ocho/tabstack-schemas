@@ -1,0 +1,116 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/gov-public-records/property-tax-record.json",
+  "title": "Property Tax Record",
+  "description": "Property tax assessment and payment record from a county assessor or tax collector.",
+  "type": "object",
+  "properties": {
+    "parcel_number": {
+      "type": "string",
+      "description": "Assessor's parcel number (APN) or folio number. Commonly found in: county assessor website, tax collector portal."
+    },
+    "address": {
+      "type": "string",
+      "description": "Property street address. Commonly found in: county assessor website, tax records."
+    },
+    "city": {
+      "type": "string",
+      "description": "City of the property. Commonly found in: county assessor website."
+    },
+    "county": {
+      "type": "string",
+      "description": "County of the property. Commonly found in: county assessor website."
+    },
+    "state": {
+      "type": "string",
+      "description": "State of the property. Commonly found in: county assessor website."
+    },
+    "zip_code": {
+      "type": "string",
+      "description": "ZIP code of the property. Commonly found in: county assessor website, property address."
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Latitude coordinate of the property. Commonly found in: geocoding API, GIS data."
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Longitude coordinate of the property. Commonly found in: geocoding API, GIS data."
+    },
+    "owner_name": {
+      "type": "string",
+      "description": "Name of the property owner. Commonly found in: county assessor website, tax records."
+    },
+    "owner_mailing_address": {
+      "type": "string",
+      "description": "Mailing address of the property owner. Commonly found in: county assessor website."
+    },
+    "property_type": {
+      "type": "string",
+      "description": "Property use type (e.g., single family, commercial). Commonly found in: county assessor website, property details."
+    },
+    "land_value_usd": {
+      "type": "number",
+      "description": "Assessed value of the land in USD. Commonly found in: county assessor website, assessment breakdown."
+    },
+    "improvement_value_usd": {
+      "type": "number",
+      "description": "Assessed value of improvements in USD. Commonly found in: county assessor website, assessment breakdown."
+    },
+    "total_assessed_value_usd": {
+      "type": "number",
+      "description": "Total assessed value in USD. Commonly found in: county assessor website, tax bill."
+    },
+    "market_value_usd": {
+      "type": "number",
+      "description": "Estimated market value in USD. Commonly found in: county assessor website, appraisal."
+    },
+    "tax_year": {
+      "type": "number",
+      "description": "Tax year for this record. Commonly found in: county assessor website, tax bill."
+    },
+    "annual_tax_usd": {
+      "type": "number",
+      "description": "Annual property tax amount in USD. Commonly found in: tax collector portal, tax bill."
+    },
+    "tax_rate_pct": {
+      "type": "number",
+      "description": "Effective tax rate as a percentage. Commonly found in: county tax rate schedule."
+    },
+    "exemptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tax exemptions applied (e.g., homestead, senior). Commonly found in: county assessor website, exemption records."
+    },
+    "tax_status": {
+      "type": "string",
+      "enum": ["paid", "delinquent", "partial", "exempt", "other"],
+      "description": "Current tax payment status. Commonly found in: tax collector portal."
+    },
+    "last_sale_price_usd": {
+      "type": "number",
+      "description": "Price from the most recent sale in USD. Commonly found in: county recorder, deed records."
+    },
+    "last_sale_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the most recent sale. Commonly found in: county recorder, deed records."
+    },
+    "zoning": {
+      "type": "string",
+      "description": "Zoning classification of the property. Commonly found in: county assessor website, zoning map."
+    },
+    "page_title": {
+      "type": "string",
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
+      "type": "string",
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
+    }
+  },
+  "required": ["parcel_number", "address", "city", "county", "state", "total_assessed_value_usd", "tax_year", "annual_tax_usd"]
+}
