@@ -24,7 +24,7 @@
     },
     "case_type": {
       "type": "string",
-      "enum": ["civil", "criminal", "bankruptcy", "family", "probate", "administrative"],
+      "enum": ["civil", "criminal", "bankruptcy", "family", "probate", "administrative", "other"],
       "description": "Type of legal case. Commonly found in: PACER, court portal, nature of suit code."
     },
     "case_title": {
@@ -38,7 +38,7 @@
     },
     "status": {
       "type": "string",
-      "enum": ["open", "closed", "pending", "appealed", "dismissed", "settled"],
+      "enum": ["open", "closed", "pending", "appealed", "dismissed", "settled", "other"],
       "description": "Current status of the case. Commonly found in: PACER, court portal."
     },
     "plaintiffs": {
@@ -85,14 +85,14 @@
       },
       "description": "Key docket entries. Commonly found in: PACER docket, court portal docket."
     },
-    "source_url": {
+    "page_title": {
       "type": "string",
-      "description": "URL of the case docket page. Commonly found in: PACER URL, court portal URL."
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
     },
-    "extracted_at": {
+    "favicon": {
       "type": "string",
-      "format": "date-time",
-      "description": "ISO 8601 timestamp when this record was extracted. Commonly found in: scraper metadata."
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
     }
   },
   "$defs": {
@@ -136,5 +136,5 @@
       "required": ["date", "description"]
     }
   },
-  "required": ["case_number", "court_name", "case_type", "case_title", "filing_date", "status", "source_url", "extracted_at"]
+  "required": ["case_number", "court_name", "case_type", "case_title", "filing_date", "status"]
 }

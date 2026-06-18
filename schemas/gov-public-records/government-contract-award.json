@@ -79,7 +79,7 @@
     },
     "vendor_size": {
       "type": "string",
-      "enum": ["small", "large"],
+      "enum": ["small", "large", "other"],
       "description": "Business size of the vendor. Commonly found in: USASpending.gov, FPDS business size."
     },
     "naics_code": {
@@ -100,23 +100,23 @@
     },
     "set_aside_type": {
       "type": "string",
-      "enum": ["small_business", "8a", "hubzone", "sdvosb", "wosb", "none"],
+      "enum": ["small_business", "8a", "hubzone", "sdvosb", "wosb", "none", "other"],
       "description": "Set-aside type for socioeconomic programs. Commonly found in: USASpending.gov, FPDS set-aside type."
     },
     "competitive_procedures": {
       "type": "string",
-      "enum": ["full_and_open", "limited", "sole_source"],
+      "enum": ["full_and_open", "limited", "sole_source", "other"],
       "description": "Competitive procedures used. Commonly found in: USASpending.gov, FPDS competition type."
     },
-    "source_url": {
+    "page_title": {
       "type": "string",
-      "description": "URL of the award record page. Commonly found in: USASpending.gov award URL, SAM.gov."
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
     },
-    "extracted_at": {
+    "favicon": {
       "type": "string",
-      "format": "date-time",
-      "description": "ISO 8601 timestamp when this record was extracted. Commonly found in: scraper metadata."
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
     }
   },
-  "required": ["award_id", "award_type", "agency_name", "award_date", "obligated_amount_usd", "vendor_name", "source_url", "extracted_at"]
+  "required": ["award_id", "award_type", "agency_name", "award_date", "obligated_amount_usd", "vendor_name"]
 }

@@ -16,7 +16,7 @@
     },
     "permit_status": {
       "type": "string",
-      "enum": ["applied", "approved", "issued", "inspected", "finaled", "expired", "withdrawn"],
+      "enum": ["applied", "approved", "issued", "inspected", "finaled", "expired", "withdrawn", "other"],
       "description": "Current status of the permit. Commonly found in: permit portal, status field."
     },
     "address": {
@@ -95,15 +95,15 @@
       "format": "date",
       "description": "Date permit was finaled. Commonly found in: permit portal, dates section."
     },
-    "source_url": {
+    "page_title": {
       "type": "string",
-      "description": "URL of the permit record page. Commonly found in: permit portal URL."
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
     },
-    "extracted_at": {
+    "favicon": {
       "type": "string",
-      "format": "date-time",
-      "description": "ISO 8601 timestamp when this record was extracted. Commonly found in: scraper metadata."
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
     }
   },
-  "required": ["permit_number", "permit_type", "permit_status", "address", "city", "state", "source_url", "extracted_at"]
+  "required": ["permit_number", "permit_type", "permit_status", "address", "city", "state"]
 }

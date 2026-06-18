@@ -34,7 +34,7 @@
     },
     "status": {
       "type": "string",
-      "enum": ["active", "inactive", "dissolved", "revoked", "pending"],
+      "enum": ["active", "inactive", "dissolved", "revoked", "pending", "other"],
       "description": "Current status of the entity. Commonly found in: secretary of state website."
     },
     "formation_date": {
@@ -91,14 +91,14 @@
       "type": "string",
       "description": "IRS Employer Identification Number (EIN). Commonly found in: IRS records, business filings."
     },
-    "source_url": {
+    "page_title": {
       "type": "string",
-      "description": "URL of the source registry page. Commonly found in: secretary of state website URL."
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
     },
-    "extracted_at": {
+    "favicon": {
       "type": "string",
-      "format": "date-time",
-      "description": "ISO 8601 timestamp when this record was extracted. Commonly found in: scraper metadata."
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
     }
   },
   "$defs": {
@@ -122,5 +122,5 @@
       "required": ["name"]
     }
   },
-  "required": ["entity_name", "entity_type", "state_of_formation", "status", "state", "source_url", "extracted_at"]
+  "required": ["entity_name", "entity_type", "state_of_formation", "status", "state"]
 }
