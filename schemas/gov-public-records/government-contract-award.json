@@ -1,0 +1,281 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/gov-public-records/government-contract-award.json",
+  "title": "Government Contract Award",
+  "description": "Federal or state government contract, grant, or other award from USASpending.gov or equivalent.",
+  "type": "object",
+  "properties": {
+    "award_id": {
+      "type": "string",
+      "description": "Unique award identifier.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "USASpending.gov",
+        "SAM.gov",
+        "award notice"
+      ]
+    },
+    "piid": {
+      "type": "string",
+      "description": "Procurement Instrument Identifier (PIID) for contracts.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "USASpending.gov",
+        "FPDS"
+      ]
+    },
+    "award_type": {
+      "type": "string",
+      "enum": [
+        "contract",
+        "grant",
+        "loan",
+        "idv",
+        "other"
+      ],
+      "description": "Type of award.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "USASpending.gov award type field"
+      ]
+    },
+    "agency_name": {
+      "type": "string",
+      "description": "Name of the awarding government agency.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "USASpending.gov",
+        "award notice",
+        "SAM.gov"
+      ]
+    },
+    "agency_code": {
+      "type": "string",
+      "description": "Agency code.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "USASpending.gov",
+        "FPDS agency codes"
+      ]
+    },
+    "sub_agency_name": {
+      "type": "string",
+      "description": "Name of the sub-agency or office.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "USASpending.gov",
+        "award notice"
+      ]
+    },
+    "award_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the award.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "USASpending.gov award date",
+        "FPDS"
+      ]
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Period of performance start date.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "USASpending.gov",
+        "contract document"
+      ]
+    },
+    "end_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Period of performance end date.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "USASpending.gov",
+        "contract document"
+      ]
+    },
+    "potential_total_value_usd": {
+      "type": "number",
+      "description": "Total potential value of the contract in USD.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "USASpending.gov",
+        "FPDS"
+      ]
+    },
+    "obligated_amount_usd": {
+      "type": "number",
+      "description": "Amount obligated in USD.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "USASpending.gov obligated amount field"
+      ]
+    },
+    "vendor_name": {
+      "type": "string",
+      "description": "Name of the vendor or awardee.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "USASpending.gov",
+        "award notice",
+        "SAM.gov"
+      ]
+    },
+    "vendor_domain": {
+      "type": "string",
+      "description": "Website domain of the vendor.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "company website",
+        "SAM.gov entity"
+      ]
+    },
+    "vendor_address": {
+      "type": "string",
+      "description": "Street address of the vendor.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "USASpending.gov",
+        "SAM.gov entity"
+      ]
+    },
+    "vendor_city": {
+      "type": "string",
+      "description": "City of the vendor.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "USASpending.gov",
+        "SAM.gov entity"
+      ]
+    },
+    "vendor_state": {
+      "type": "string",
+      "description": "State of the vendor.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "USASpending.gov",
+        "SAM.gov entity"
+      ]
+    },
+    "vendor_country": {
+      "type": "string",
+      "description": "Country of the vendor.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "USASpending.gov",
+        "SAM.gov entity"
+      ]
+    },
+    "vendor_size": {
+      "type": "string",
+      "enum": [
+        "small",
+        "large"
+      ],
+      "description": "Business size of the vendor.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "USASpending.gov",
+        "FPDS business size"
+      ]
+    },
+    "naics_code": {
+      "type": "string",
+      "description": "NAICS code for the award.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "USASpending.gov",
+        "FPDS"
+      ]
+    },
+    "naics_description": {
+      "type": "string",
+      "description": "NAICS code description.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "NAICS code lookup",
+        "USASpending.gov"
+      ]
+    },
+    "psc_code": {
+      "type": "string",
+      "description": "Product and Service Code (PSC).",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "USASpending.gov",
+        "FPDS"
+      ]
+    },
+    "award_description": {
+      "type": "string",
+      "description": "Description of the award.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "award notice",
+        "USASpending.gov description field"
+      ]
+    },
+    "set_aside_type": {
+      "type": "string",
+      "enum": [
+        "small_business",
+        "8a",
+        "hubzone",
+        "sdvosb",
+        "wosb",
+        "none"
+      ],
+      "description": "Set-aside type for socioeconomic programs.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "USASpending.gov",
+        "FPDS set-aside type"
+      ]
+    },
+    "competitive_procedures": {
+      "type": "string",
+      "enum": [
+        "full_and_open",
+        "limited",
+        "sole_source"
+      ],
+      "description": "Competitive procedures used.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "USASpending.gov",
+        "FPDS competition type"
+      ]
+    },
+    "source_url": {
+      "type": "string",
+      "description": "URL of the award record page.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "USASpending.gov award URL",
+        "SAM.gov"
+      ]
+    },
+    "extracted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this record was extracted.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "scraper metadata"
+      ]
+    }
+  },
+  "required": [
+    "award_id",
+    "award_type",
+    "agency_name",
+    "award_date",
+    "obligated_amount_usd",
+    "vendor_name",
+    "source_url",
+    "extracted_at"
+  ]
+}

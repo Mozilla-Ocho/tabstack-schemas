@@ -1,0 +1,269 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/gov-public-records/court-filing-case.json",
+  "title": "Court Filing / Case",
+  "description": "Court case record including parties, filings, and outcomes from a federal or state court docket.",
+  "type": "object",
+  "properties": {
+    "case_number": {
+      "type": "string",
+      "description": "Official case number.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "PACER",
+        "state court portal",
+        "court docket"
+      ]
+    },
+    "court_name": {
+      "type": "string",
+      "description": "Name of the court.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "PACER",
+        "state court portal"
+      ]
+    },
+    "court_type": {
+      "type": "string",
+      "enum": [
+        "federal_district",
+        "federal_bankruptcy",
+        "federal_appeals",
+        "state_trial",
+        "state_appeals",
+        "other"
+      ],
+      "description": "Type of court.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "court portal",
+        "case metadata"
+      ]
+    },
+    "jurisdiction": {
+      "type": "string",
+      "description": "Jurisdiction or district.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "court portal",
+        "case header"
+      ]
+    },
+    "case_type": {
+      "type": "string",
+      "enum": [
+        "civil",
+        "criminal",
+        "bankruptcy",
+        "family",
+        "probate",
+        "administrative"
+      ],
+      "description": "Type of legal case.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "PACER",
+        "court portal",
+        "nature of suit code"
+      ]
+    },
+    "case_title": {
+      "type": "string",
+      "description": "Official case title (e.g., Plaintiff v. Defendant).",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "PACER",
+        "court portal"
+      ]
+    },
+    "filing_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the case was filed.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "PACER",
+        "court portal",
+        "docket header"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "closed",
+        "pending",
+        "appealed",
+        "dismissed",
+        "settled"
+      ],
+      "description": "Current status of the case.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "PACER",
+        "court portal"
+      ]
+    },
+    "plaintiffs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/CaseParty"
+      },
+      "description": "Plaintiff parties.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "PACER",
+        "court portal party list"
+      ]
+    },
+    "defendants": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/CaseParty"
+      },
+      "description": "Defendant parties.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "PACER",
+        "court portal party list"
+      ]
+    },
+    "judge_name": {
+      "type": "string",
+      "description": "Name of the presiding judge.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "PACER",
+        "court portal",
+        "docket header"
+      ]
+    },
+    "causes_of_action": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Legal causes of action or claims.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "complaint",
+        "docket entry",
+        "PACER nature of suit"
+      ]
+    },
+    "claim_amount_usd": {
+      "type": "number",
+      "description": "Amount claimed in USD.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "complaint",
+        "docket filing"
+      ]
+    },
+    "settlement_amount_usd": {
+      "type": "number",
+      "description": "Settlement amount in USD if settled.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "settlement filing",
+        "press release"
+      ]
+    },
+    "verdict": {
+      "type": "string",
+      "description": "Verdict or judgment description.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "judgment order",
+        "docket entry"
+      ]
+    },
+    "docket_entries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DocketEntry"
+      },
+      "description": "Key docket entries.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "PACER docket",
+        "court portal docket"
+      ]
+    },
+    "source_url": {
+      "type": "string",
+      "description": "URL of the case docket page.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "PACER URL",
+        "court portal URL"
+      ]
+    },
+    "extracted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this record was extracted.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "scraper metadata"
+      ]
+    }
+  },
+  "$defs": {
+    "CaseParty": {
+      "type": "object",
+      "description": "A party involved in the case.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the party."
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of party (e.g., individual, corporation)."
+        },
+        "attorney": {
+          "type": "string",
+          "description": "Name of the party's attorney."
+        },
+        "attorney_firm": {
+          "type": "string",
+          "description": "Law firm of the party's attorney."
+        }
+      },
+      "required": [
+        "name"
+      ]
+    },
+    "DocketEntry": {
+      "type": "object",
+      "description": "An entry on the case docket.",
+      "properties": {
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "Date of the docket entry."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the docket entry."
+        }
+      },
+      "required": [
+        "date",
+        "description"
+      ]
+    }
+  },
+  "required": [
+    "case_number",
+    "court_name",
+    "case_type",
+    "case_title",
+    "filing_date",
+    "status",
+    "source_url",
+    "extracted_at"
+  ]
+}

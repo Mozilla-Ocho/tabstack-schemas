@@ -1,0 +1,249 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/gov-public-records/property-tax-record.json",
+  "title": "Property Tax Record",
+  "description": "Property tax assessment and payment record from a county assessor or tax collector.",
+  "type": "object",
+  "properties": {
+    "parcel_number": {
+      "type": "string",
+      "description": "Assessor's parcel number (APN) or folio number.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "county assessor website",
+        "tax collector portal"
+      ]
+    },
+    "address": {
+      "type": "string",
+      "description": "Property street address.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "county assessor website",
+        "tax records"
+      ]
+    },
+    "city": {
+      "type": "string",
+      "description": "City of the property.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "county assessor website"
+      ]
+    },
+    "county": {
+      "type": "string",
+      "description": "County of the property.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "county assessor website"
+      ]
+    },
+    "state": {
+      "type": "string",
+      "description": "State of the property.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "county assessor website"
+      ]
+    },
+    "zip_code": {
+      "type": "string",
+      "description": "ZIP code of the property.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "county assessor website",
+        "property address"
+      ]
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Latitude coordinate of the property.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "geocoding API",
+        "GIS data"
+      ]
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Longitude coordinate of the property.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "geocoding API",
+        "GIS data"
+      ]
+    },
+    "owner_name": {
+      "type": "string",
+      "description": "Name of the property owner.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "county assessor website",
+        "tax records"
+      ]
+    },
+    "owner_mailing_address": {
+      "type": "string",
+      "description": "Mailing address of the property owner.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "county assessor website"
+      ]
+    },
+    "property_type": {
+      "type": "string",
+      "description": "Property use type (e.g., single family, commercial).",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "county assessor website",
+        "property details"
+      ]
+    },
+    "land_value_usd": {
+      "type": "number",
+      "description": "Assessed value of the land in USD.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "county assessor website",
+        "assessment breakdown"
+      ]
+    },
+    "improvement_value_usd": {
+      "type": "number",
+      "description": "Assessed value of improvements in USD.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "county assessor website",
+        "assessment breakdown"
+      ]
+    },
+    "total_assessed_value_usd": {
+      "type": "number",
+      "description": "Total assessed value in USD.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "county assessor website",
+        "tax bill"
+      ]
+    },
+    "market_value_usd": {
+      "type": "number",
+      "description": "Estimated market value in USD.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "county assessor website",
+        "appraisal"
+      ]
+    },
+    "tax_year": {
+      "type": "number",
+      "description": "Tax year for this record.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "county assessor website",
+        "tax bill"
+      ]
+    },
+    "annual_tax_usd": {
+      "type": "number",
+      "description": "Annual property tax amount in USD.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "tax collector portal",
+        "tax bill"
+      ]
+    },
+    "tax_rate_pct": {
+      "type": "number",
+      "description": "Effective tax rate as a percentage.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "county tax rate schedule"
+      ]
+    },
+    "exemptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tax exemptions applied (e.g., homestead, senior).",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "county assessor website",
+        "exemption records"
+      ]
+    },
+    "tax_status": {
+      "type": "string",
+      "enum": [
+        "paid",
+        "delinquent",
+        "partial",
+        "exempt"
+      ],
+      "description": "Current tax payment status.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "tax collector portal"
+      ]
+    },
+    "last_sale_price_usd": {
+      "type": "number",
+      "description": "Price from the most recent sale in USD.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "county recorder",
+        "deed records"
+      ]
+    },
+    "last_sale_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the most recent sale.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "county recorder",
+        "deed records"
+      ]
+    },
+    "zoning": {
+      "type": "string",
+      "description": "Zoning classification of the property.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "county assessor website",
+        "zoning map"
+      ]
+    },
+    "source_url": {
+      "type": "string",
+      "description": "URL of the property tax record page.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "county assessor website URL"
+      ]
+    },
+    "extracted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this record was extracted.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "scraper metadata"
+      ]
+    }
+  },
+  "required": [
+    "parcel_number",
+    "address",
+    "city",
+    "county",
+    "state",
+    "total_assessed_value_usd",
+    "tax_year",
+    "annual_tax_usd",
+    "source_url",
+    "extracted_at"
+  ]
+}

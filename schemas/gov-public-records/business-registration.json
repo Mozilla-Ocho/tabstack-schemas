@@ -1,0 +1,236 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/gov-public-records/business-registration.json",
+  "title": "Business Registration",
+  "description": "Business entity registration record from a state secretary of state or equivalent authority.",
+  "type": "object",
+  "properties": {
+    "entity_name": {
+      "type": "string",
+      "description": "Legal registered name of the entity.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "secretary of state website",
+        "business registry"
+      ]
+    },
+    "entity_name_aliases": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "DBA or trade names.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "secretary of state website",
+        "DBA filings"
+      ]
+    },
+    "entity_type": {
+      "type": "string",
+      "enum": [
+        "llc",
+        "corporation",
+        "partnership",
+        "sole_prop",
+        "nonprofit",
+        "other"
+      ],
+      "description": "Legal entity type.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "secretary of state website",
+        "formation documents"
+      ]
+    },
+    "state_of_formation": {
+      "type": "string",
+      "description": "US state where the entity was formed.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "secretary of state website"
+      ]
+    },
+    "foreign_qualification_states": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "States where the entity is registered as a foreign entity.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "state business registries"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "dissolved",
+        "revoked",
+        "pending"
+      ],
+      "description": "Current status of the entity.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "secretary of state website"
+      ]
+    },
+    "formation_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the entity was formed.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "secretary of state website",
+        "articles of incorporation"
+      ]
+    },
+    "dissolution_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of dissolution if applicable.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "secretary of state website"
+      ]
+    },
+    "registered_agent_name": {
+      "type": "string",
+      "description": "Name of the registered agent.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "secretary of state website"
+      ]
+    },
+    "registered_agent_address": {
+      "type": "string",
+      "description": "Address of the registered agent.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "secretary of state website"
+      ]
+    },
+    "principal_office_address": {
+      "type": "string",
+      "description": "Principal office street address.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "secretary of state website",
+        "annual report"
+      ]
+    },
+    "city": {
+      "type": "string",
+      "description": "City of the principal office.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "secretary of state website"
+      ]
+    },
+    "state": {
+      "type": "string",
+      "description": "State of the principal office.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "secretary of state website"
+      ]
+    },
+    "zip_code": {
+      "type": "string",
+      "description": "ZIP code of the principal office.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "secretary of state website"
+      ]
+    },
+    "officers_and_directors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/OfficerDirector"
+      },
+      "description": "Officers, directors, and managers.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "secretary of state website",
+        "annual report"
+      ]
+    },
+    "annual_report_due_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Due date for next annual report.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "secretary of state website"
+      ]
+    },
+    "entity_number": {
+      "type": "string",
+      "description": "State-assigned entity or file number.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "secretary of state website"
+      ]
+    },
+    "irs_ein": {
+      "type": "string",
+      "description": "IRS Employer Identification Number (EIN).",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "IRS records",
+        "business filings"
+      ]
+    },
+    "source_url": {
+      "type": "string",
+      "description": "URL of the source registry page.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "secretary of state website URL"
+      ]
+    },
+    "extracted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this record was extracted.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "scraper metadata"
+      ]
+    }
+  },
+  "$defs": {
+    "OfficerDirector": {
+      "type": "object",
+      "description": "An officer, director, or manager of the entity.",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Full name of the officer or director."
+        },
+        "title": {
+          "type": "string",
+          "description": "Title or role (e.g., CEO, Director, Manager)."
+        },
+        "address": {
+          "type": "string",
+          "description": "Address of the officer or director."
+        }
+      },
+      "required": [
+        "name"
+      ]
+    }
+  },
+  "required": [
+    "entity_name",
+    "entity_type",
+    "state_of_formation",
+    "status",
+    "state",
+    "source_url",
+    "extracted_at"
+  ]
+}

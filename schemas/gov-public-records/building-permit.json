@@ -1,0 +1,246 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/gov-public-records/building-permit.json",
+  "title": "Building Permit",
+  "description": "Building or construction permit record from a municipal or county permitting authority.",
+  "type": "object",
+  "properties": {
+    "permit_number": {
+      "type": "string",
+      "description": "Official permit number.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "city permit portal",
+        "county records"
+      ]
+    },
+    "permit_type": {
+      "type": "string",
+      "enum": [
+        "new_construction",
+        "addition",
+        "renovation",
+        "demolition",
+        "electrical",
+        "plumbing",
+        "mechanical",
+        "other"
+      ],
+      "description": "Type of permit.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "permit portal",
+        "permit type field"
+      ]
+    },
+    "permit_status": {
+      "type": "string",
+      "enum": [
+        "applied",
+        "approved",
+        "issued",
+        "inspected",
+        "finaled",
+        "expired",
+        "withdrawn"
+      ],
+      "description": "Current status of the permit.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "permit portal",
+        "status field"
+      ]
+    },
+    "address": {
+      "type": "string",
+      "description": "Street address of the permitted property.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "permit portal",
+        "property address field"
+      ]
+    },
+    "city": {
+      "type": "string",
+      "description": "City of the permitted property.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "permit portal"
+      ]
+    },
+    "county": {
+      "type": "string",
+      "description": "County of the permitted property.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "permit portal",
+        "county records"
+      ]
+    },
+    "state": {
+      "type": "string",
+      "description": "State of the permitted property.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "permit portal"
+      ]
+    },
+    "zip_code": {
+      "type": "string",
+      "description": "ZIP code of the permitted property.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "permit portal",
+        "property address"
+      ]
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Latitude coordinate of the property.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "geocoding API",
+        "GIS data"
+      ]
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Longitude coordinate of the property.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "geocoding API",
+        "GIS data"
+      ]
+    },
+    "parcel_number": {
+      "type": "string",
+      "description": "Assessor's parcel number (APN).",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "permit portal",
+        "county assessor"
+      ]
+    },
+    "project_description": {
+      "type": "string",
+      "description": "Description of the construction project.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "permit portal",
+        "permit description field"
+      ]
+    },
+    "estimated_valuation_usd": {
+      "type": "number",
+      "description": "Estimated value of the construction work in USD.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "permit portal",
+        "valuation field"
+      ]
+    },
+    "square_footage": {
+      "type": "number",
+      "description": "Square footage of the construction area.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "permit portal",
+        "project details"
+      ]
+    },
+    "contractor_name": {
+      "type": "string",
+      "description": "Name of the licensed contractor.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "permit portal",
+        "contractor section"
+      ]
+    },
+    "contractor_license_number": {
+      "type": "string",
+      "description": "Contractor license number.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "permit portal",
+        "contractor section"
+      ]
+    },
+    "owner_name": {
+      "type": "string",
+      "description": "Name of the property owner.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "permit portal",
+        "owner section"
+      ]
+    },
+    "application_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date permit was applied for.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "permit portal",
+        "dates section"
+      ]
+    },
+    "issued_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date permit was issued.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "permit portal",
+        "dates section"
+      ]
+    },
+    "expiry_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date permit expires.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "permit portal",
+        "dates section"
+      ]
+    },
+    "final_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date permit was finaled.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "permit portal",
+        "dates section"
+      ]
+    },
+    "source_url": {
+      "type": "string",
+      "description": "URL of the permit record page.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "permit portal URL"
+      ]
+    },
+    "extracted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this record was extracted.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "scraper metadata"
+      ]
+    }
+  },
+  "required": [
+    "permit_number",
+    "permit_type",
+    "permit_status",
+    "address",
+    "city",
+    "state",
+    "source_url",
+    "extracted_at"
+  ]
+}
