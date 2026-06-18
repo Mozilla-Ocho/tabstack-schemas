@@ -51,7 +51,7 @@
     },
     "layoff_type": {
       "type": "string",
-      "enum": ["restructuring", "performance", "acquisition", "economic"],
+      "enum": ["restructuring", "performance", "acquisition", "economic", "other"],
       "description": "Stated reason or type of layoff. Commonly found in: press release body, news article analysis, company statement."
     },
     "severance_weeks": {
@@ -62,25 +62,24 @@
       "type": "boolean",
       "description": "Whether laid-off employees are eligible for rehire. Commonly found in: press release body, employee FAQ, company statement."
     },
-    "source_url": {
-      "type": "string",
-      "format": "uri",
-      "description": "URL of the page from which this data was extracted. Commonly found in: browser URL bar, canonical link tag, og:url meta tag."
-    },
     "source_type": {
       "type": "string",
-      "enum": ["press_release", "news_article", "sec_filing", "social"],
+      "enum": ["press_release", "news_article", "sec_filing", "social", "other"],
       "description": "Type of source for the layoff information. Commonly found in: site domain classification, content type, source format."
     },
     "ceo_statement": {
       "type": "string",
       "description": "Statement or message from the CEO about the layoff. Commonly found in: press release CEO quote, internal memo published externally, news article quote."
     },
-    "extracted_at": {
+    "page_title": {
       "type": "string",
-      "format": "date-time",
-      "description": "ISO 8601 timestamp when this record was extracted. Commonly found in: extraction metadata, scraper system timestamp."
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
+      "type": "string",
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
     }
   },
-  "required": ["company_name", "announcement_date", "source_url", "extracted_at"]
+  "required": ["company_name", "announcement_date"]
 }

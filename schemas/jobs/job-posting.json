@@ -23,17 +23,17 @@
     },
     "remote_type": {
       "type": "string",
-      "enum": ["remote", "hybrid", "onsite"],
+      "enum": ["remote", "hybrid", "onsite", "other"],
       "description": "Remote work type for this position. Commonly found in: remote badge, job metadata row, work arrangement field."
     },
     "employment_type": {
       "type": "string",
-      "enum": ["full_time", "part_time", "contract", "internship"],
+      "enum": ["full_time", "part_time", "contract", "internship", "other"],
       "description": "Employment type or contract duration. Commonly found in: job type badge, employment type field, job metadata row."
     },
     "seniority_level": {
       "type": "string",
-      "enum": ["intern", "entry", "mid", "senior", "staff", "principal", "director", "vp", "exec"],
+      "enum": ["intern", "entry", "mid", "senior", "staff", "principal", "director", "vp", "exec", "other"],
       "description": "Seniority level of the position. Commonly found in: job title, seniority field, experience level badge."
     },
     "salary_min": {
@@ -50,7 +50,7 @@
     },
     "salary_interval": {
       "type": "string",
-      "enum": ["annual", "hourly", "monthly"],
+      "enum": ["annual", "hourly", "monthly", "other"],
       "description": "Pay interval for salary figures. Commonly found in: salary display label, compensation section."
     },
     "equity": {
@@ -113,16 +113,15 @@
       "type": "boolean",
       "description": "Whether visa sponsorship is available. Commonly found in: visa sponsorship field, requirements section, job description body."
     },
-    "source_url": {
+    "page_title": {
+      "type": "string",
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
       "type": "string",
       "format": "uri",
-      "description": "URL of the page from which this job was extracted. Commonly found in: browser URL bar, canonical link tag, og:url meta tag."
-    },
-    "extracted_at": {
-      "type": "string",
-      "format": "date-time",
-      "description": "ISO 8601 timestamp when this job posting was extracted. Commonly found in: extraction metadata, scraper system timestamp."
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
     }
   },
-  "required": ["title", "company_name", "location", "description", "apply_url", "source_url", "extracted_at"]
+  "required": ["title", "company_name", "location", "description", "apply_url"]
 }

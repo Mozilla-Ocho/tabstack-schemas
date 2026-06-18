@@ -40,7 +40,7 @@
     },
     "change_type": {
       "type": "string",
-      "enum": ["promotion", "new_hire", "departure", "retirement", "interim"],
+      "enum": ["promotion", "new_hire", "departure", "retirement", "interim", "other"],
       "description": "Type of leadership change. Commonly found in: press release context, news article classification, announcement language."
     },
     "announcement_date": {
@@ -60,23 +60,22 @@
     },
     "announcement_type": {
       "type": "string",
-      "enum": ["press_release", "linkedin_post", "sec_filing", "news_article"],
+      "enum": ["press_release", "linkedin_post", "sec_filing", "news_article", "other"],
       "description": "Type of source for the announcement. Commonly found in: site domain classification, content type, source format."
     },
     "quoted_statement": {
       "type": "string",
       "description": "Notable quoted statement from the announcement. Commonly found in: press release quote block, news article quote, executive statement."
     },
-    "source_url": {
+    "page_title": {
+      "type": "string",
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
       "type": "string",
       "format": "uri",
-      "description": "URL of the page from which this data was extracted. Commonly found in: browser URL bar, canonical link tag, og:url meta tag."
-    },
-    "extracted_at": {
-      "type": "string",
-      "format": "date-time",
-      "description": "ISO 8601 timestamp when this record was extracted. Commonly found in: extraction metadata, scraper system timestamp."
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
     }
   },
-  "required": ["person_name", "company_name", "new_title", "new_company", "change_type", "announcement_date", "source_url", "extracted_at"]
+  "required": ["person_name", "company_name", "new_title", "new_company", "change_type", "announcement_date"]
 }
