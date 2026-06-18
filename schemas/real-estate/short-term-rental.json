@@ -1,0 +1,190 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.io/real-estate/short-term-rental.json",
+  "title": "Short-Term Rental",
+  "description": "Schema for short-term vacation rental listings (Airbnb, VRBO, etc.).",
+  "type": "object",
+  "properties": {
+    "listing_id": {
+      "type": "string",
+      "description": "Platform-specific listing identifier.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["listing URL slug", "page metadata", "listing ID field"]
+    },
+    "title": {
+      "type": "string",
+      "description": "Title or name of the rental listing.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["listing page header", "h1 tag", "og:title meta tag"]
+    },
+    "platform": {
+      "type": "string",
+      "description": "Platform hosting the listing (e.g., Airbnb, VRBO).",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["site domain", "platform branding", "page footer"]
+    },
+    "host_name": {
+      "type": "string",
+      "description": "Name of the property host.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["host profile section", "listing header", "contact info"]
+    },
+    "host_is_superhost": {
+      "type": "boolean",
+      "description": "Whether the host has superhost or equivalent status.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["host profile badge", "superhost indicator", "listing header"]
+    },
+    "property_type": {
+      "type": "string",
+      "enum": ["entire_place", "private_room", "shared_room"],
+      "description": "Type of space offered.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["listing header", "property type badge", "room type indicator"]
+    },
+    "city": {
+      "type": "string",
+      "description": "City where the rental is located.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["listing location", "breadcrumb", "map section"]
+    },
+    "state": {
+      "type": "string",
+      "description": "State or region of the rental.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["listing location", "breadcrumb", "map section"]
+    },
+    "country": {
+      "type": "string",
+      "description": "Country where the rental is located.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["listing location", "breadcrumb", "map section"]
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Geographic latitude coordinate.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["map embed data", "JSON-LD structured data"]
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Geographic longitude coordinate.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["map embed data", "JSON-LD structured data"]
+    },
+    "bedrooms": {
+      "type": "number",
+      "description": "Number of bedrooms.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["listing specs bar", "property details", "header stats"]
+    },
+    "bathrooms": {
+      "type": "number",
+      "description": "Number of bathrooms.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["listing specs bar", "property details", "header stats"]
+    },
+    "max_guests": {
+      "type": "number",
+      "description": "Maximum number of guests allowed.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["listing specs bar", "guest capacity display", "header stats"]
+    },
+    "nightly_rate": {
+      "type": "number",
+      "description": "Base nightly rate in the listed currency.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["price display", "nightly rate box", "booking widget"]
+    },
+    "weekend_rate": {
+      "type": "number",
+      "description": "Weekend nightly rate.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["pricing details", "rate breakdown", "booking widget"]
+    },
+    "cleaning_fee": {
+      "type": "number",
+      "description": "One-time cleaning fee per booking.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["fee breakdown section", "booking summary", "pricing details"]
+    },
+    "service_fee": {
+      "type": "number",
+      "description": "Platform service fee per booking.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["fee breakdown section", "booking summary", "pricing details"]
+    },
+    "minimum_nights": {
+      "type": "number",
+      "description": "Minimum number of nights required per booking.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["listing policies section", "booking widget", "availability details"]
+    },
+    "maximum_nights": {
+      "type": "number",
+      "description": "Maximum number of nights allowed per booking.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["listing policies section", "booking widget", "availability details"]
+    },
+    "review_count": {
+      "type": "number",
+      "description": "Total number of guest reviews.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["review section header", "listing rating display", "review count badge"]
+    },
+    "review_rating": {
+      "type": "number",
+      "description": "Average guest review rating.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["listing header rating", "star rating display", "review summary"]
+    },
+    "amenities": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of amenities available at the rental.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["amenities section", "what this place offers", "listing features"]
+    },
+    "cancellation_policy": {
+      "type": "string",
+      "enum": ["flexible", "moderate", "strict"],
+      "description": "Cancellation policy for the listing.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["cancellation policy section", "booking terms", "listing policies"]
+    },
+    "images": {
+      "type": "array",
+      "items": { "type": "string", "format": "uri" },
+      "description": "URLs of listing images.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["photo gallery", "image carousel", "og:image meta tag"]
+    },
+    "description": {
+      "type": "string",
+      "description": "Full text description of the rental.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["listing description section", "about this space", "overview text"]
+    },
+    "instant_book": {
+      "type": "boolean",
+      "description": "Whether the listing supports instant booking.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["instant book badge", "booking widget", "listing header indicators"]
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the page from which this listing was extracted.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["browser URL bar", "canonical link tag", "og:url meta tag"]
+    },
+    "extracted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this listing was extracted.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["extraction metadata", "scraper system timestamp"]
+    }
+  },
+  "required": ["title", "platform", "property_type", "city", "country", "bedrooms", "bathrooms", "max_guests", "nightly_rate", "source_url", "extracted_at"]
+}
