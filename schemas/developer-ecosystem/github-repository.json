@@ -1,0 +1,158 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/developer-ecosystem/github-repository.json",
+  "title": "GitHub Repository",
+  "description": "GitHub repository data for OSS research and competitive intel.",
+  "type": "object",
+  "properties": {
+    "owner": {
+      "type": "string",
+      "description": "GitHub username or organization name that owns the repository."
+    },
+    "repo_name": {
+      "type": "string",
+      "description": "Repository name (without owner prefix)."
+    },
+    "full_name": {
+      "type": "string",
+      "description": "Full repository identifier in 'owner/repo' format."
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description of the repository."
+    },
+    "homepage_url": {
+      "type": "string",
+      "description": "Homepage URL set on the repository."
+    },
+    "language_primary": {
+      "type": "string",
+      "description": "Primary programming language detected by GitHub."
+    },
+    "languages": {
+      "type": "array",
+      "description": "Breakdown of programming languages used in the repository.",
+      "items": {
+        "$ref": "#/$defs/LanguageStat"
+      }
+    },
+    "topics": {
+      "type": "array",
+      "description": "GitHub topic tags applied to the repository.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "license": {
+      "type": "string",
+      "description": "SPDX license identifier or license name."
+    },
+    "is_fork": {
+      "type": "boolean",
+      "description": "Whether this repository is a fork of another repository."
+    },
+    "is_archived": {
+      "type": "boolean",
+      "description": "Whether the repository has been archived."
+    },
+    "is_template": {
+      "type": "boolean",
+      "description": "Whether the repository is marked as a template."
+    },
+    "visibility": {
+      "type": "string",
+      "description": "Visibility level of the repository.",
+      "enum": ["public", "private", "internal", "other"]
+    },
+    "stars_count": {
+      "type": "number",
+      "description": "Number of stars the repository has received."
+    },
+    "forks_count": {
+      "type": "number",
+      "description": "Number of forks of this repository."
+    },
+    "watchers_count": {
+      "type": "number",
+      "description": "Number of users watching the repository."
+    },
+    "open_issues_count": {
+      "type": "number",
+      "description": "Number of currently open issues."
+    },
+    "open_prs_count": {
+      "type": "number",
+      "description": "Number of currently open pull requests."
+    },
+    "contributors_count": {
+      "type": "number",
+      "description": "Total number of contributors."
+    },
+    "commits_count": {
+      "type": "number",
+      "description": "Total number of commits on the default branch."
+    },
+    "releases_count": {
+      "type": "number",
+      "description": "Total number of GitHub releases published."
+    },
+    "latest_release_tag": {
+      "type": "string",
+      "description": "Tag name of the latest release (e.g., 'v1.2.3')."
+    },
+    "latest_release_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 datetime of the latest release."
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 datetime when the repository was created."
+    },
+    "pushed_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 datetime of the most recent push."
+    },
+    "default_branch": {
+      "type": "string",
+      "description": "Name of the default branch (e.g., 'main', 'master')."
+    },
+    "readme_url": {
+      "type": "string",
+      "description": "URL to the raw README file."
+    },
+    "page_title": {
+      "type": "string",
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
+      "type": "string",
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
+    }
+  },
+  "$defs": {
+    "LanguageStat": {
+      "type": "object",
+      "description": "Language usage statistics for a repository.",
+      "properties": {
+        "language": {
+          "type": "string",
+          "description": "Programming language name."
+        },
+        "bytes": {
+          "type": "number",
+          "description": "Number of bytes of code written in this language."
+        },
+        "percentage": {
+          "type": "number",
+          "description": "Percentage of the codebase written in this language."
+        }
+      },
+      "required": ["language"]
+    }
+  },
+  "required": ["owner", "repo_name", "full_name", "stars_count"]
+}

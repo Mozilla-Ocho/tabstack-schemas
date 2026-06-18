@@ -1,0 +1,126 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/developer-ecosystem/package-registry-entry.json",
+  "title": "Package Registry Entry",
+  "description": "Package from npm, PyPI, crates.io, etc.",
+  "type": "object",
+  "properties": {
+    "registry": {
+      "type": "string",
+      "description": "The package registry this entry comes from. Commonly found in: npmjs.com/package, pypi.org/project, crates.io/crates.",
+      "enum": ["npm", "pypi", "crates_io", "rubygems", "packagist", "nuget", "maven", "go_modules", "other"]
+    },
+    "package_name": {
+      "type": "string",
+      "description": "Name of the package as listed in the registry."
+    },
+    "package_version": {
+      "type": "string",
+      "description": "Version of the package this record describes."
+    },
+    "latest_version": {
+      "type": "string",
+      "description": "The latest stable version available in the registry."
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description of the package."
+    },
+    "homepage_url": {
+      "type": "string",
+      "description": "Homepage URL for the package."
+    },
+    "repository_url": {
+      "type": "string",
+      "description": "Source repository URL (e.g., GitHub link)."
+    },
+    "license": {
+      "type": "string",
+      "description": "SPDX license identifier or license name."
+    },
+    "keywords": {
+      "type": "array",
+      "description": "Keywords or tags associated with the package.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "author_name": {
+      "type": "string",
+      "description": "Name of the primary author."
+    },
+    "author_email": {
+      "type": "string",
+      "description": "Email of the primary author."
+    },
+    "maintainers": {
+      "type": "array",
+      "description": "List of maintainer usernames or names.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "description": "List of runtime dependencies.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "dev_dependencies": {
+      "type": "array",
+      "description": "List of development dependencies.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "weekly_downloads": {
+      "type": "number",
+      "description": "Number of downloads in the past 7 days."
+    },
+    "total_downloads": {
+      "type": "number",
+      "description": "Total all-time download count."
+    },
+    "dependent_packages_count": {
+      "type": "number",
+      "description": "Number of packages that depend on this package."
+    },
+    "github_stars": {
+      "type": "number",
+      "description": "GitHub star count for the linked repository."
+    },
+    "open_issues_count": {
+      "type": "number",
+      "description": "Number of open issues on the repository."
+    },
+    "first_published_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 datetime when the package was first published."
+    },
+    "last_published_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 datetime of the most recent release."
+    },
+    "deprecated": {
+      "type": "boolean",
+      "description": "Whether the package has been marked as deprecated."
+    },
+    "deprecation_message": {
+      "type": "string",
+      "description": "Message explaining why or what to migrate to."
+    },
+    "page_title": {
+      "type": "string",
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
+      "type": "string",
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
+    }
+  },
+  "required": ["registry", "package_name", "package_version"]
+}
