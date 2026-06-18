@@ -7,163 +7,130 @@
   "properties": {
     "owner": {
       "type": "string",
-      "description": "GitHub username or organization name that owns the repository.",
-      "x-tabstack-priority": "required"
+      "description": "GitHub username or organization name that owns the repository."
     },
     "repo_name": {
       "type": "string",
-      "description": "Repository name (without owner prefix).",
-      "x-tabstack-priority": "required"
+      "description": "Repository name (without owner prefix)."
     },
     "full_name": {
       "type": "string",
-      "description": "Full repository identifier in 'owner/repo' format.",
-      "x-tabstack-priority": "required"
+      "description": "Full repository identifier in 'owner/repo' format."
     },
     "description": {
       "type": "string",
-      "description": "Short description of the repository.",
-      "x-tabstack-priority": "optional"
+      "description": "Short description of the repository."
     },
     "homepage_url": {
       "type": "string",
-      "description": "Homepage URL set on the repository.",
-      "x-tabstack-priority": "optional"
+      "description": "Homepage URL set on the repository."
     },
     "language_primary": {
       "type": "string",
-      "description": "Primary programming language detected by GitHub.",
-      "x-tabstack-priority": "optional"
+      "description": "Primary programming language detected by GitHub."
     },
     "languages": {
       "type": "array",
       "description": "Breakdown of programming languages used in the repository.",
       "items": {
         "$ref": "#/$defs/LanguageStat"
-      },
-      "x-tabstack-priority": "optional"
+      }
     },
     "topics": {
       "type": "array",
       "description": "GitHub topic tags applied to the repository.",
       "items": {
         "type": "string"
-      },
-      "x-tabstack-priority": "optional"
+      }
     },
     "license": {
       "type": "string",
-      "description": "SPDX license identifier or license name.",
-      "x-tabstack-priority": "optional"
+      "description": "SPDX license identifier or license name."
     },
     "is_fork": {
       "type": "boolean",
-      "description": "Whether this repository is a fork of another repository.",
-      "x-tabstack-priority": "optional"
+      "description": "Whether this repository is a fork of another repository."
     },
     "is_archived": {
       "type": "boolean",
-      "description": "Whether the repository has been archived.",
-      "x-tabstack-priority": "optional"
+      "description": "Whether the repository has been archived."
     },
     "is_template": {
       "type": "boolean",
-      "description": "Whether the repository is marked as a template.",
-      "x-tabstack-priority": "optional"
+      "description": "Whether the repository is marked as a template."
     },
     "visibility": {
       "type": "string",
       "description": "Visibility level of the repository.",
-      "enum": [
-        "public",
-        "private",
-        "internal"
-      ],
-      "x-tabstack-priority": "optional"
+      "enum": ["public", "private", "internal"]
     },
     "stars_count": {
       "type": "number",
-      "description": "Number of stars the repository has received.",
-      "x-tabstack-priority": "required"
+      "description": "Number of stars the repository has received."
     },
     "forks_count": {
       "type": "number",
-      "description": "Number of forks of this repository.",
-      "x-tabstack-priority": "optional"
+      "description": "Number of forks of this repository."
     },
     "watchers_count": {
       "type": "number",
-      "description": "Number of users watching the repository.",
-      "x-tabstack-priority": "optional"
+      "description": "Number of users watching the repository."
     },
     "open_issues_count": {
       "type": "number",
-      "description": "Number of currently open issues.",
-      "x-tabstack-priority": "optional"
+      "description": "Number of currently open issues."
     },
     "open_prs_count": {
       "type": "number",
-      "description": "Number of currently open pull requests.",
-      "x-tabstack-priority": "optional"
+      "description": "Number of currently open pull requests."
     },
     "contributors_count": {
       "type": "number",
-      "description": "Total number of contributors.",
-      "x-tabstack-priority": "optional"
+      "description": "Total number of contributors."
     },
     "commits_count": {
       "type": "number",
-      "description": "Total number of commits on the default branch.",
-      "x-tabstack-priority": "optional"
+      "description": "Total number of commits on the default branch."
     },
     "releases_count": {
       "type": "number",
-      "description": "Total number of GitHub releases published.",
-      "x-tabstack-priority": "optional"
+      "description": "Total number of GitHub releases published."
     },
     "latest_release_tag": {
       "type": "string",
-      "description": "Tag name of the latest release (e.g., 'v1.2.3').",
-      "x-tabstack-priority": "optional"
+      "description": "Tag name of the latest release (e.g., 'v1.2.3')."
     },
     "latest_release_at": {
       "type": "string",
       "format": "date-time",
-      "description": "ISO 8601 datetime of the latest release.",
-      "x-tabstack-priority": "optional"
+      "description": "ISO 8601 datetime of the latest release."
     },
     "created_at": {
       "type": "string",
       "format": "date-time",
-      "description": "ISO 8601 datetime when the repository was created.",
-      "x-tabstack-priority": "optional"
+      "description": "ISO 8601 datetime when the repository was created."
     },
     "pushed_at": {
       "type": "string",
       "format": "date-time",
-      "description": "ISO 8601 datetime of the most recent push.",
-      "x-tabstack-priority": "optional"
+      "description": "ISO 8601 datetime of the most recent push."
     },
     "default_branch": {
       "type": "string",
-      "description": "Name of the default branch (e.g., 'main', 'master').",
-      "x-tabstack-priority": "optional"
+      "description": "Name of the default branch (e.g., 'main', 'master')."
     },
     "readme_url": {
       "type": "string",
-      "description": "URL to the raw README file.",
-      "x-tabstack-priority": "optional"
+      "description": "URL to the raw README file."
     },
     "source_url": {
       "type": "string",
-      "description": "The URL of the page this data was sourced from.",
-      "x-tabstack-priority": "required"
+      "description": "The URL of the page this data was sourced from."
     },
     "extracted_at": {
       "type": "string",
       "format": "date-time",
-      "description": "ISO 8601 timestamp when this record was extracted.",
-      "x-tabstack-priority": "required"
+      "description": "ISO 8601 timestamp when this record was extracted."
     }
   },
   "$defs": {
@@ -184,17 +151,8 @@
           "description": "Percentage of the codebase written in this language."
         }
       },
-      "required": [
-        "language"
-      ]
+      "required": ["language"]
     }
   },
-  "required": [
-    "owner",
-    "repo_name",
-    "full_name",
-    "stars_count",
-    "source_url",
-    "extracted_at"
-  ]
+  "required": ["owner", "repo_name", "full_name", "stars_count", "source_url", "extracted_at"]
 }
