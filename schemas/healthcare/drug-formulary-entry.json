@@ -1,0 +1,236 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/healthcare/drug-formulary-entry.json",
+  "title": "Drug Formulary Entry",
+  "description": "A drug entry from a health insurance plan formulary, including tier, coverage requirements, and pricing.",
+  "type": "object",
+  "properties": {
+    "drug_name_brand": {
+      "type": "string",
+      "description": "Brand name of the drug.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "formulary document",
+        "pharmacy benefit page"
+      ]
+    },
+    "drug_name_generic": {
+      "type": "string",
+      "description": "Generic (INN) name of the drug.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "formulary document",
+        "pharmacy benefit page"
+      ]
+    },
+    "ndc": {
+      "type": "string",
+      "description": "National Drug Code (NDC).",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "formulary PDF",
+        "NDC database"
+      ]
+    },
+    "manufacturer": {
+      "type": "string",
+      "description": "Drug manufacturer.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "formulary document",
+        "drug label"
+      ]
+    },
+    "drug_class": {
+      "type": "string",
+      "description": "Pharmacological drug class.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "formulary document",
+        "FDA drug class"
+      ]
+    },
+    "dosage_forms": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/DosageForm"
+      },
+      "description": "Available dosage forms, strengths, and routes.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "formulary document",
+        "drug label"
+      ]
+    },
+    "formulary_tier": {
+      "type": "string",
+      "enum": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "specialty"
+      ],
+      "description": "Formulary tier which determines cost-sharing.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "formulary document",
+        "pharmacy benefit summary"
+      ]
+    },
+    "prior_auth_required": {
+      "type": "boolean",
+      "description": "Whether prior authorization is required.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "formulary document",
+        "coverage restrictions"
+      ]
+    },
+    "quantity_limits": {
+      "$ref": "#/$defs/QuantityLimit",
+      "description": "Quantity limits on coverage.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "formulary document",
+        "coverage restrictions"
+      ]
+    },
+    "step_therapy_required": {
+      "type": "boolean",
+      "description": "Whether step therapy (fail-first) is required.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "formulary document",
+        "coverage restrictions"
+      ]
+    },
+    "plan_name": {
+      "type": "string",
+      "description": "Name of the insurance plan.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "formulary header",
+        "plan document"
+      ]
+    },
+    "plan_year": {
+      "type": "number",
+      "description": "Plan year for this formulary.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "formulary header",
+        "plan document"
+      ]
+    },
+    "retail_price_30day": {
+      "type": "number",
+      "description": "Retail pharmacy price for a 30-day supply in USD.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "formulary cost-sharing table",
+        "pharmacy page"
+      ]
+    },
+    "mail_order_price_90day": {
+      "type": "number",
+      "description": "Mail order price for a 90-day supply in USD.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "formulary cost-sharing table",
+        "pharmacy page"
+      ]
+    },
+    "generic_available": {
+      "type": "boolean",
+      "description": "Whether a generic equivalent is available.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "formulary document",
+        "pharmacy data"
+      ]
+    },
+    "black_box_warning": {
+      "type": "boolean",
+      "description": "Whether the drug carries an FDA black box warning.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "FDA label",
+        "drug monograph"
+      ]
+    },
+    "controlled_substance_schedule": {
+      "type": "string",
+      "description": "DEA controlled substance schedule if applicable.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "DEA database",
+        "drug label"
+      ]
+    },
+    "source_url": {
+      "type": "string",
+      "description": "URL of the source formulary page.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "insurance plan formulary page"
+      ]
+    },
+    "extracted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this record was extracted.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "scraper metadata"
+      ]
+    }
+  },
+  "$defs": {
+    "DosageForm": {
+      "type": "object",
+      "description": "A specific dosage form and strength of a drug.",
+      "properties": {
+        "form": {
+          "type": "string",
+          "description": "Dosage form (e.g., tablet, capsule, injection)."
+        },
+        "strength": {
+          "type": "string",
+          "description": "Drug strength (e.g., 10 mg, 500 mg/5 mL)."
+        },
+        "route": {
+          "type": "string",
+          "description": "Route of administration (e.g., oral, intravenous)."
+        }
+      },
+      "required": [
+        "form"
+      ]
+    },
+    "QuantityLimit": {
+      "type": "object",
+      "description": "Quantity limits applied to drug coverage.",
+      "properties": {
+        "quantity": {
+          "type": "number",
+          "description": "Maximum quantity covered."
+        },
+        "days_supply": {
+          "type": "number",
+          "description": "Days supply for the quantity limit."
+        }
+      },
+      "required": [
+        "quantity",
+        "days_supply"
+      ]
+    }
+  },
+  "required": [
+    "drug_name_generic",
+    "source_url",
+    "extracted_at"
+  ]
+}
