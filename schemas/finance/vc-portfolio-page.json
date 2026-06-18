@@ -15,7 +15,7 @@
     },
     "firm_type": {
       "type": "string",
-      "enum": ["vc", "family_office", "corporate_vc", "accelerator", "angel_group"],
+      "enum": ["vc", "family_office", "corporate_vc", "accelerator", "angel_group", "other"],
       "description": "Type of investment firm. Commonly found in: about page, firm description."
     },
     "investment_stages": {
@@ -72,14 +72,14 @@
       },
       "description": "Companies in the firm's portfolio. Commonly found in: portfolio page, investments page."
     },
-    "source_url": {
+    "page_title": {
       "type": "string",
-      "description": "URL of the source portfolio page. Commonly found in: portfolio page URL."
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
     },
-    "extracted_at": {
+    "favicon": {
       "type": "string",
-      "format": "date-time",
-      "description": "ISO 8601 timestamp when this record was extracted. Commonly found in: scraper metadata."
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
     }
   },
   "$defs": {
@@ -116,5 +116,5 @@
       "required": ["company_name"]
     }
   },
-  "required": ["firm_name", "firm_domain", "portfolio_companies", "source_url", "extracted_at"]
+  "required": ["firm_name", "firm_domain", "portfolio_companies"]
 }

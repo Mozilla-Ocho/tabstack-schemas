@@ -22,7 +22,7 @@
     },
     "round_type": {
       "type": "string",
-      "enum": ["angel", "pre_seed", "seed", "convertible_note", "safe"],
+      "enum": ["angel", "pre_seed", "seed", "convertible_note", "safe", "other"],
       "description": "Type of funding round. Commonly found in: Crunchbase, press release, AngelList."
     },
     "amount_usd": {
@@ -40,7 +40,7 @@
     },
     "lead_investor_type": {
       "type": "string",
-      "enum": ["angel", "fund", "accelerator"],
+      "enum": ["angel", "fund", "accelerator", "other"],
       "description": "Type of lead investor. Commonly found in: press release, Crunchbase."
     },
     "co_investors": {
@@ -78,20 +78,20 @@
       "type": "string",
       "description": "Stated use of the raised funds. Commonly found in: press release, company blog."
     },
-    "source_url": {
-      "type": "string",
-      "description": "URL of the source page. Commonly found in: press release URL, Crunchbase, AngelList."
-    },
     "source_type": {
       "type": "string",
       "enum": ["angellist", "crunchbase", "twitter", "press_release", "other"],
       "description": "Type of source where this deal was found. Commonly found in: scraper metadata."
     },
-    "extracted_at": {
+    "page_title": {
       "type": "string",
-      "format": "date-time",
-      "description": "ISO 8601 timestamp when this record was extracted. Commonly found in: scraper metadata."
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
+      "type": "string",
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
     }
   },
-  "required": ["company_name", "round_type", "announced_date", "source_url", "extracted_at"]
+  "required": ["company_name", "round_type", "announced_date"]
 }
