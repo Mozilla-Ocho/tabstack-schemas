@@ -7,127 +7,101 @@
   "properties": {
     "headline": {
       "type": "string",
-      "description": "Main headline of the article.",
-      "x-tabstack-priority": "required"
+      "description": "Main headline of the article."
     },
     "subheadline": {
       "type": "string",
-      "description": "Secondary headline or deck of the article.",
-      "x-tabstack-priority": "optional"
+      "description": "Secondary headline or deck of the article."
     },
     "author_name": {
       "type": "string",
-      "description": "Name of the article's author.",
-      "x-tabstack-priority": "optional"
+      "description": "Name of the article's author."
     },
     "author_url": {
       "type": "string",
-      "description": "URL to the author's profile or bio page.",
-      "x-tabstack-priority": "optional"
+      "description": "URL to the author's profile or bio page."
     },
     "publication_name": {
       "type": "string",
-      "description": "Name of the publication or outlet.",
-      "x-tabstack-priority": "required"
+      "description": "Name of the publication or outlet."
     },
     "publication_domain": {
       "type": "string",
-      "description": "Domain of the publication (e.g., 'techcrunch.com').",
-      "x-tabstack-priority": "optional"
+      "description": "Domain of the publication (e.g., 'techcrunch.com')."
     },
     "published_at": {
       "type": "string",
       "format": "date-time",
-      "description": "ISO 8601 datetime when the article was first published.",
-      "x-tabstack-priority": "required"
+      "description": "ISO 8601 datetime when the article was first published."
     },
     "updated_at": {
       "type": "string",
       "format": "date-time",
-      "description": "ISO 8601 datetime when the article was last updated.",
-      "x-tabstack-priority": "optional"
+      "description": "ISO 8601 datetime when the article was last updated."
     },
     "article_url": {
       "type": "string",
-      "description": "Direct URL to the article.",
-      "x-tabstack-priority": "required"
+      "description": "Direct URL to the article."
     },
     "canonical_url": {
       "type": "string",
-      "description": "Canonical URL as declared by the article page.",
-      "x-tabstack-priority": "optional"
+      "description": "Canonical URL as declared by the article page."
     },
     "body_text": {
       "type": "string",
-      "description": "Full body text of the article.",
-      "x-tabstack-priority": "optional"
+      "description": "Full body text of the article."
     },
     "summary": {
       "type": "string",
-      "description": "Short summary or abstract of the article.",
-      "x-tabstack-priority": "optional"
+      "description": "Short summary or abstract of the article."
     },
     "word_count": {
       "type": "number",
-      "description": "Approximate word count of the article body.",
-      "x-tabstack-priority": "optional"
+      "description": "Approximate word count of the article body."
     },
     "language": {
       "type": "string",
-      "description": "BCP-47 language code of the article (e.g., 'en').",
-      "x-tabstack-priority": "optional"
+      "description": "BCP-47 language code of the article (e.g., 'en')."
     },
     "section": {
       "type": "string",
-      "description": "Publication section or category the article appears in.",
-      "x-tabstack-priority": "optional"
+      "description": "Publication section or category the article appears in."
     },
     "tags": {
       "type": "array",
       "description": "List of tags or topic labels applied to the article.",
       "items": {
         "type": "string"
-      },
-      "x-tabstack-priority": "optional"
+      }
     },
     "entities_mentioned": {
       "type": "array",
       "description": "Named entities mentioned in the article.",
       "items": {
         "$ref": "#/$defs/EntityMention"
-      },
-      "x-tabstack-priority": "optional"
+      }
     },
     "sentiment": {
       "type": "string",
       "description": "Overall sentiment of the article.",
-      "enum": [
-        "positive",
-        "negative",
-        "neutral"
-      ],
-      "x-tabstack-priority": "optional"
+      "enum": ["positive", "negative", "neutral"]
     },
     "paywall": {
       "type": "boolean",
-      "description": "Whether the article is behind a paywall.",
-      "x-tabstack-priority": "optional"
+      "description": "Whether the article is behind a paywall."
     },
     "image_url": {
       "type": "string",
-      "description": "URL to the article's featured image.",
-      "x-tabstack-priority": "optional"
+      "description": "URL to the article's featured image."
     },
     "source_url": {
       "type": "string",
-      "description": "The URL of the page this data was sourced from.",
-      "x-tabstack-priority": "required"
+      "description": "The URL of the page this data was sourced from."
     },
     "extracted_at": {
       "type": "string",
       "format": "date-time",
-      "description": "ISO 8601 timestamp when this record was extracted.",
-      "x-tabstack-priority": "required"
+      "description": "ISO 8601 timestamp when this record was extracted."
     }
   },
   "$defs": {
@@ -142,31 +116,15 @@
         "type": {
           "type": "string",
           "description": "Category of the entity.",
-          "enum": [
-            "company",
-            "person",
-            "product",
-            "location",
-            "other"
-          ]
+          "enum": ["company", "person", "product", "location", "other"]
         },
         "url": {
           "type": "string",
           "description": "Optional URL associated with the entity."
         }
       },
-      "required": [
-        "name",
-        "type"
-      ]
+      "required": ["name", "type"]
     }
   },
-  "required": [
-    "headline",
-    "publication_name",
-    "published_at",
-    "article_url",
-    "source_url",
-    "extracted_at"
-  ]
+  "required": ["headline", "publication_name", "published_at", "article_url", "source_url", "extracted_at"]
 }

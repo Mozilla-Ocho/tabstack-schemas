@@ -7,144 +7,96 @@
   "properties": {
     "platform": {
       "type": "string",
-      "description": "The social platform this profile belongs to.",
-      "enum": [
-        "linkedin",
-        "twitter",
-        "x",
-        "github",
-        "instagram",
-        "youtube",
-        "tiktok",
-        "other"
-      ],
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "linkedin.com/company",
-        "twitter.com",
-        "x.com"
-      ]
+      "description": "The social platform this profile belongs to. Commonly found in: linkedin.com/company, twitter.com, x.com.",
+      "enum": ["linkedin", "twitter", "x", "github", "instagram", "youtube", "tiktok", "other"]
     },
     "profile_type": {
       "type": "string",
       "description": "Whether this profile belongs to a person, company, or organization.",
-      "enum": [
-        "person",
-        "company",
-        "organization"
-      ],
-      "x-tabstack-priority": "required"
+      "enum": ["person", "company", "organization"]
     },
     "username_or_handle": {
       "type": "string",
-      "description": "The username or @handle for this profile.",
-      "x-tabstack-priority": "required"
+      "description": "The username or @handle for this profile."
     },
     "display_name": {
       "type": "string",
-      "description": "The public display name of the profile.",
-      "x-tabstack-priority": "required"
+      "description": "The public display name of the profile."
     },
     "bio": {
       "type": "string",
-      "description": "Short biography or description text on the profile.",
-      "x-tabstack-priority": "optional"
+      "description": "Short biography or description text on the profile."
     },
     "follower_count": {
       "type": "number",
-      "description": "Number of followers.",
-      "x-tabstack-priority": "optional"
+      "description": "Number of followers."
     },
     "following_count": {
       "type": "number",
-      "description": "Number of accounts the profile is following.",
-      "x-tabstack-priority": "optional"
+      "description": "Number of accounts the profile is following."
     },
     "post_count": {
       "type": "number",
-      "description": "Total number of posts or tweets published.",
-      "x-tabstack-priority": "optional"
+      "description": "Total number of posts or tweets published."
     },
     "verified": {
       "type": "boolean",
-      "description": "Whether the profile has a verified badge.",
-      "x-tabstack-priority": "optional"
+      "description": "Whether the profile has a verified badge."
     },
     "website_url": {
       "type": "string",
-      "description": "External website URL listed on the profile.",
-      "x-tabstack-priority": "optional"
+      "description": "External website URL listed on the profile."
     },
     "location": {
       "type": "string",
-      "description": "Self-reported location of the profile.",
-      "x-tabstack-priority": "optional"
+      "description": "Self-reported location of the profile."
     },
     "founded_year": {
       "type": "number",
-      "description": "Year the company was founded. Applicable to company profiles.",
-      "x-tabstack-priority": "optional"
+      "description": "Year the company was founded. Applicable to company profiles."
     },
     "employee_count_range": {
       "type": "string",
-      "description": "Employee count range for company profiles (e.g., '11-50').",
-      "x-tabstack-priority": "optional"
+      "description": "Employee count range for company profiles (e.g., '11-50')."
     },
     "industry": {
       "type": "string",
-      "description": "Industry classification for company profiles.",
-      "x-tabstack-priority": "optional"
+      "description": "Industry classification for company profiles."
     },
     "profile_url": {
       "type": "string",
-      "description": "Canonical URL of the profile page.",
-      "x-tabstack-priority": "required"
+      "description": "Canonical URL of the profile page."
     },
     "avatar_url": {
       "type": "string",
-      "description": "URL to the profile avatar / profile picture.",
-      "x-tabstack-priority": "optional"
+      "description": "URL to the profile avatar / profile picture."
     },
     "banner_url": {
       "type": "string",
-      "description": "URL to the profile banner / header image.",
-      "x-tabstack-priority": "optional"
+      "description": "URL to the profile banner / header image."
     },
     "pinned_post_url": {
       "type": "string",
-      "description": "URL of the pinned post on the profile.",
-      "x-tabstack-priority": "optional"
+      "description": "URL of the pinned post on the profile."
     },
     "engagement_rate_pct": {
       "type": "number",
-      "description": "Engagement rate as a percentage.",
-      "x-tabstack-priority": "optional"
+      "description": "Engagement rate as a percentage."
     },
     "snapshot_at": {
       "type": "string",
       "format": "date-time",
-      "description": "Timestamp when the profile data was snapshotted.",
-      "x-tabstack-priority": "required"
+      "description": "Timestamp when the profile data was snapshotted."
     },
     "source_url": {
       "type": "string",
-      "description": "The URL of the page this data was sourced from.",
-      "x-tabstack-priority": "required"
+      "description": "The URL of the page this data was sourced from."
     },
     "extracted_at": {
       "type": "string",
       "format": "date-time",
-      "description": "ISO 8601 timestamp when this record was extracted.",
-      "x-tabstack-priority": "required"
+      "description": "ISO 8601 timestamp when this record was extracted."
     }
   },
-  "required": [
-    "platform",
-    "profile_type",
-    "username_or_handle",
-    "display_name",
-    "profile_url",
-    "source_url",
-    "extracted_at"
-  ]
+  "required": ["platform", "profile_type", "username_or_handle", "display_name", "profile_url", "source_url", "extracted_at"]
 }

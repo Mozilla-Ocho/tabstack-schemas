@@ -7,154 +7,104 @@
   "properties": {
     "platform": {
       "type": "string",
-      "description": "The review platform where this review was published.",
-      "enum": [
-        "g2",
-        "capterra",
-        "trustpilot",
-        "getapp",
-        "software_advice",
-        "other"
-      ],
-      "x-tabstack-priority": "required",
-      "x-tabstack-source-hints": [
-        "g2.com/products",
-        "capterra.com/software",
-        "trustpilot.com"
-      ]
+      "description": "The review platform where this review was published. Commonly found in: g2.com/products, capterra.com/software, trustpilot.com.",
+      "enum": ["g2", "capterra", "trustpilot", "getapp", "software_advice", "other"]
     },
     "product_name": {
       "type": "string",
-      "description": "Name of the software product being reviewed.",
-      "x-tabstack-priority": "required"
+      "description": "Name of the software product being reviewed."
     },
     "product_slug": {
       "type": "string",
-      "description": "URL slug or identifier for the product on the review platform.",
-      "x-tabstack-priority": "optional"
+      "description": "URL slug or identifier for the product on the review platform."
     },
     "product_url": {
       "type": "string",
-      "description": "URL to the product listing on the review platform.",
-      "x-tabstack-priority": "optional"
+      "description": "URL to the product listing on the review platform."
     },
     "reviewer_name": {
       "type": "string",
-      "description": "Name or alias of the reviewer.",
-      "x-tabstack-priority": "optional"
+      "description": "Name or alias of the reviewer."
     },
     "reviewer_title": {
       "type": "string",
-      "description": "Job title of the reviewer.",
-      "x-tabstack-priority": "optional"
+      "description": "Job title of the reviewer."
     },
     "reviewer_company_size": {
       "type": "string",
       "description": "Company size bracket of the reviewer's employer.",
-      "enum": [
-        "1-10",
-        "11-50",
-        "51-200",
-        "201-1000",
-        "1001-5000",
-        "5001+"
-      ],
-      "x-tabstack-priority": "optional"
+      "enum": ["1-10", "11-50", "51-200", "201-1000", "1001-5000", "5001+"]
     },
     "reviewer_industry": {
       "type": "string",
-      "description": "Industry of the reviewer's company.",
-      "x-tabstack-priority": "optional"
+      "description": "Industry of the reviewer's company."
     },
     "reviewer_verified": {
       "type": "boolean",
-      "description": "Whether the reviewer identity has been verified by the platform.",
-      "x-tabstack-priority": "optional"
+      "description": "Whether the reviewer identity has been verified by the platform."
     },
     "rating_overall": {
       "type": "number",
-      "description": "Overall rating given by the reviewer, out of 5.",
-      "x-tabstack-priority": "required"
+      "description": "Overall rating given by the reviewer, out of 5."
     },
     "rating_ease_of_use": {
       "type": "number",
-      "description": "Ease-of-use rating out of 5.",
-      "x-tabstack-priority": "optional"
+      "description": "Ease-of-use rating out of 5."
     },
     "rating_features": {
       "type": "number",
-      "description": "Features rating out of 5.",
-      "x-tabstack-priority": "optional"
+      "description": "Features rating out of 5."
     },
     "rating_customer_support": {
       "type": "number",
-      "description": "Customer support rating out of 5.",
-      "x-tabstack-priority": "optional"
+      "description": "Customer support rating out of 5."
     },
     "rating_value_for_money": {
       "type": "number",
-      "description": "Value-for-money rating out of 5.",
-      "x-tabstack-priority": "optional"
+      "description": "Value-for-money rating out of 5."
     },
     "review_title": {
       "type": "string",
-      "description": "Title or headline of the review.",
-      "x-tabstack-priority": "optional"
+      "description": "Title or headline of the review."
     },
     "review_body": {
       "type": "string",
-      "description": "Full text body of the review.",
-      "x-tabstack-priority": "optional"
+      "description": "Full text body of the review."
     },
     "pros": {
       "type": "string",
-      "description": "Pros section of the review.",
-      "x-tabstack-priority": "optional"
+      "description": "Pros section of the review."
     },
     "cons": {
       "type": "string",
-      "description": "Cons section of the review.",
-      "x-tabstack-priority": "optional"
+      "description": "Cons section of the review."
     },
     "use_case": {
       "type": "string",
-      "description": "Described use case or problem the reviewer is solving.",
-      "x-tabstack-priority": "optional"
+      "description": "Described use case or problem the reviewer is solving."
     },
     "review_date": {
       "type": "string",
       "format": "date",
-      "description": "Date the review was published (YYYY-MM-DD).",
-      "x-tabstack-priority": "required"
+      "description": "Date the review was published (YYYY-MM-DD)."
     },
     "helpful_count": {
       "type": "number",
-      "description": "Number of users who marked this review as helpful.",
-      "x-tabstack-priority": "optional"
+      "description": "Number of users who marked this review as helpful."
     },
     "verified_purchase": {
       "type": "boolean",
-      "description": "Whether the reviewer is a verified purchaser of the product.",
-      "x-tabstack-priority": "optional"
+      "description": "Whether the reviewer is a verified purchaser of the product."
     },
     "source_url": {
       "type": "string",
-      "description": "The URL of the page this data was sourced from.",
-      "x-tabstack-priority": "required"
+      "description": "The URL of the page this data was sourced from."
     },
     "extracted_at": {
       "type": "string",
       "format": "date-time",
-      "description": "ISO 8601 timestamp when this record was extracted.",
-      "x-tabstack-priority": "required"
+      "description": "ISO 8601 timestamp when this record was extracted."
     }
   },
-  "required": [
-    "platform",
-    "product_name",
-    "rating_overall",
-    "review_date",
-    "source_url",
-    "extracted_at"
-  ]
+  "required": ["platform", "product_name", "rating_overall", "review_date", "source_url", "extracted_at"]
 }
