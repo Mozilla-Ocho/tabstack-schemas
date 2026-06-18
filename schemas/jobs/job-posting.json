@@ -1,0 +1,172 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.io/jobs/job-posting.json",
+  "title": "Job Posting",
+  "description": "Schema for individual job listings extracted from job boards and company career pages.",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Job title or position name.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["page h1 tag", "job header", "og:title meta tag"]
+    },
+    "company_name": {
+      "type": "string",
+      "description": "Name of the hiring company.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["company header", "job details section", "breadcrumb navigation"]
+    },
+    "company_domain": {
+      "type": "string",
+      "description": "Website domain of the hiring company.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["company website link", "apply URL domain", "company profile link"]
+    },
+    "location": {
+      "type": "string",
+      "description": "Job location (city, state, country or Remote).",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["job metadata row", "location badge", "job details section"]
+    },
+    "remote_type": {
+      "type": "string",
+      "enum": ["remote", "hybrid", "onsite"],
+      "description": "Remote work type for this position.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["remote badge", "job metadata row", "work arrangement field"]
+    },
+    "employment_type": {
+      "type": "string",
+      "enum": ["full_time", "part_time", "contract", "internship"],
+      "description": "Employment type or contract duration.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["job type badge", "employment type field", "job metadata row"]
+    },
+    "seniority_level": {
+      "type": "string",
+      "enum": ["intern", "entry", "mid", "senior", "staff", "principal", "director", "vp", "exec"],
+      "description": "Seniority level of the position.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["job title", "seniority field", "experience level badge"]
+    },
+    "salary_min": {
+      "type": "number",
+      "description": "Minimum salary offered.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["salary range display", "compensation section", "job metadata row"]
+    },
+    "salary_max": {
+      "type": "number",
+      "description": "Maximum salary offered.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["salary range display", "compensation section", "job metadata row"]
+    },
+    "salary_currency": {
+      "type": "string",
+      "description": "ISO 4217 currency code for salary values.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["salary display", "compensation section"]
+    },
+    "salary_interval": {
+      "type": "string",
+      "enum": ["annual", "hourly", "monthly"],
+      "description": "Pay interval for salary figures.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["salary display label", "compensation section"]
+    },
+    "equity": {
+      "type": "boolean",
+      "description": "Whether equity or stock options are offered.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["compensation section", "benefits list", "equity mention in description"]
+    },
+    "description": {
+      "type": "string",
+      "description": "Full text of the job description.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["job description section", "main content area", "responsibilities section"]
+    },
+    "requirements": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of job requirements or qualifications.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["requirements section", "qualifications list", "what we're looking for"]
+    },
+    "tech_stack": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of technologies, tools, or programming languages mentioned.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["tech stack section", "requirements list", "job description body"]
+    },
+    "benefits": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of benefits offered.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["benefits section", "perks list", "what we offer section"]
+    },
+    "apply_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Direct URL to apply for the position.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["apply button href", "application link", "CTA button"]
+    },
+    "posted_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the job was posted.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["posted date metadata", "listing date field", "job metadata row"]
+    },
+    "expiry_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the job listing expires.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["closing date field", "apply by date", "job metadata"]
+    },
+    "job_id": {
+      "type": "string",
+      "description": "Platform or company internal job identifier.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["job ID field", "URL parameter", "reference number"]
+    },
+    "source_platform": {
+      "type": "string",
+      "description": "Platform where the job was found (e.g., LinkedIn, Indeed).",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["site domain", "platform branding", "page footer"]
+    },
+    "department": {
+      "type": "string",
+      "description": "Department or team for this role.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["department field", "team name", "job metadata row"]
+    },
+    "visa_sponsorship": {
+      "type": "boolean",
+      "description": "Whether visa sponsorship is available.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["visa sponsorship field", "requirements section", "job description body"]
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the page from which this job was extracted.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["browser URL bar", "canonical link tag", "og:url meta tag"]
+    },
+    "extracted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this job posting was extracted.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["extraction metadata", "scraper system timestamp"]
+    }
+  },
+  "required": ["title", "company_name", "location", "description", "apply_url", "source_url", "extracted_at"]
+}
