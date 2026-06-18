@@ -62,7 +62,7 @@
     "visibility": {
       "type": "string",
       "description": "Visibility level of the repository.",
-      "enum": ["public", "private", "internal"]
+      "enum": ["public", "private", "internal", "other"]
     },
     "stars_count": {
       "type": "number",
@@ -123,14 +123,14 @@
       "type": "string",
       "description": "URL to the raw README file."
     },
-    "source_url": {
+    "page_title": {
       "type": "string",
-      "description": "The URL of the page this data was sourced from."
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
     },
-    "extracted_at": {
+    "favicon": {
       "type": "string",
-      "format": "date-time",
-      "description": "ISO 8601 timestamp when this record was extracted."
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
     }
   },
   "$defs": {
@@ -154,5 +154,5 @@
       "required": ["language"]
     }
   },
-  "required": ["owner", "repo_name", "full_name", "stars_count", "source_url", "extracted_at"]
+  "required": ["owner", "repo_name", "full_name", "stars_count"]
 }
