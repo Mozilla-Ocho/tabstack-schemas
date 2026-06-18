@@ -1,0 +1,198 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/finance/vc-portfolio-page.json",
+  "title": "VC Portfolio Page",
+  "description": "Venture capital or investment firm portfolio page listing companies and investment details.",
+  "type": "object",
+  "properties": {
+    "firm_name": {
+      "type": "string",
+      "description": "Name of the investment firm.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "firm website header",
+        "about page"
+      ]
+    },
+    "firm_domain": {
+      "type": "string",
+      "description": "Primary domain of the investment firm.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "firm website URL"
+      ]
+    },
+    "firm_type": {
+      "type": "string",
+      "enum": [
+        "vc",
+        "family_office",
+        "corporate_vc",
+        "accelerator",
+        "angel_group"
+      ],
+      "description": "Type of investment firm.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "about page",
+        "firm description"
+      ]
+    },
+    "investment_stages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Stages of investment the firm participates in.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "about page",
+        "investment thesis"
+      ]
+    },
+    "geographic_focus": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Geographic regions the firm focuses on.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "about page",
+        "investment criteria"
+      ]
+    },
+    "sector_focus": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Industry sectors the firm focuses on.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "about page",
+        "investment thesis"
+      ]
+    },
+    "fund_size_usd": {
+      "type": "number",
+      "description": "Size of the current or most recent fund in USD.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "about page",
+        "press releases"
+      ]
+    },
+    "founding_year": {
+      "type": "number",
+      "description": "Year the firm was founded.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "about page",
+        "firm history"
+      ]
+    },
+    "managing_partners": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Partner's full name."
+          },
+          "linkedin_url": {
+            "type": "string",
+            "description": "LinkedIn profile URL."
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "description": "List of managing partners at the firm.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "team page",
+        "about page"
+      ]
+    },
+    "portfolio_companies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/PortfolioCompany"
+      },
+      "description": "Companies in the firm's portfolio.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "portfolio page",
+        "investments page"
+      ]
+    },
+    "source_url": {
+      "type": "string",
+      "description": "URL of the source portfolio page.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "portfolio page URL"
+      ]
+    },
+    "extracted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this record was extracted.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "scraper metadata"
+      ]
+    }
+  },
+  "$defs": {
+    "PortfolioCompany": {
+      "type": "object",
+      "description": "A company held in the firm's portfolio.",
+      "properties": {
+        "company_name": {
+          "type": "string",
+          "description": "Name of the portfolio company."
+        },
+        "domain": {
+          "type": "string",
+          "description": "Website domain of the portfolio company."
+        },
+        "investment_stage": {
+          "type": "string",
+          "description": "Stage at which the firm invested."
+        },
+        "year_invested": {
+          "type": "number",
+          "description": "Year the investment was made."
+        },
+        "sector": {
+          "type": "string",
+          "description": "Industry sector of the portfolio company."
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "active",
+            "acquired",
+            "public",
+            "shut_down"
+          ],
+          "description": "Current status of the portfolio company."
+        }
+      },
+      "required": [
+        "company_name"
+      ]
+    }
+  },
+  "required": [
+    "firm_name",
+    "firm_domain",
+    "portfolio_companies",
+    "source_url",
+    "extracted_at"
+  ]
+}
