@@ -1,0 +1,129 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.io/e-commerce/marketplace-seller-profile.json",
+  "title": "Marketplace Seller Profile",
+  "description": "Schema for seller or merchant profile pages on e-commerce marketplaces.",
+  "type": "object",
+  "$defs": {
+    "top_product": {
+      "type": "object",
+      "description": "A top-selling product entry from the seller's profile.",
+      "properties": {
+        "title": { "type": "string", "description": "Product title." },
+        "rank": { "type": "number", "description": "Rank among seller's top products." }
+      },
+      "required": ["title"]
+    }
+  },
+  "properties": {
+    "platform": {
+      "type": "string",
+      "description": "E-commerce marketplace platform (e.g., Amazon, eBay, Etsy).",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["site domain", "platform branding", "seller profile URL"]
+    },
+    "seller_id": {
+      "type": "string",
+      "description": "Platform-specific seller identifier.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["seller profile URL parameter", "seller ID field", "storefront slug"]
+    },
+    "seller_name": {
+      "type": "string",
+      "description": "Name of the seller or store.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["seller profile header", "store name display", "storefront title"]
+    },
+    "seller_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the seller's storefront page.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["storefront URL", "seller link href", "profile page URL"]
+    },
+    "rating": {
+      "type": "number",
+      "description": "Overall seller rating score.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["seller rating display", "feedback score", "star rating"]
+    },
+    "rating_count": {
+      "type": "number",
+      "description": "Total number of ratings or feedback received.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["rating count label", "feedback count display", "review count"]
+    },
+    "positive_feedback_pct": {
+      "type": "number",
+      "description": "Percentage of positive feedback.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["positive feedback percentage", "seller rating details", "feedback breakdown"]
+    },
+    "years_active": {
+      "type": "number",
+      "description": "Number of years the seller has been active on the platform.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["member since date calculation", "seller tenure display", "account age"]
+    },
+    "fulfilled_by_platform": {
+      "type": "boolean",
+      "description": "Whether the seller uses platform fulfillment (e.g., FBA).",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["FBA badge", "fulfilled by platform indicator", "shipping info"]
+    },
+    "total_products_listed": {
+      "type": "number",
+      "description": "Total number of products listed by the seller.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["product count display", "total listings label", "storefront stats"]
+    },
+    "product_categories": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Categories in which the seller lists products.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["seller categories section", "product category filters", "storefront navigation"]
+    },
+    "country_of_origin": {
+      "type": "string",
+      "description": "Country where the seller is based.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["seller location field", "ships from country", "seller profile details"]
+    },
+    "top_selling_products": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/top_product" },
+      "description": "List of the seller's top-selling products.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["featured products section", "top sellers display", "storefront highlighted items"]
+    },
+    "store_description": {
+      "type": "string",
+      "description": "Seller's store description or about text.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["about this seller section", "store bio", "seller profile description"]
+    },
+    "business_type": {
+      "type": "string",
+      "enum": ["individual", "business"],
+      "description": "Whether the seller is an individual or registered business.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": ["seller type badge", "business seller indicator", "seller profile details"]
+    },
+    "source_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the seller profile page extracted.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["browser URL bar", "canonical link tag", "og:url meta tag"]
+    },
+    "extracted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this profile was extracted.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": ["extraction metadata", "scraper system timestamp"]
+    }
+  },
+  "required": ["platform", "seller_name", "source_url", "extracted_at"]
+}
