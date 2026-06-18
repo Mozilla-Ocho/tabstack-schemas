@@ -1,0 +1,159 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.io/real-estate/rental-listing.json",
+  "title": "Rental Listing",
+  "description": "Schema for residential rental property listings.",
+  "type": "object",
+  "properties": {
+    "address": {
+      "type": "string",
+      "description": "Street address of the rental property. Commonly found in: listing page header, property details section, contact section."
+    },
+    "city": {
+      "type": "string",
+      "description": "City where the rental is located. Commonly found in: listing address, breadcrumb navigation, property header."
+    },
+    "state": {
+      "type": "string",
+      "description": "State or province of the rental. Commonly found in: listing address, breadcrumb navigation, property header."
+    },
+    "zip_code": {
+      "type": "string",
+      "description": "ZIP or postal code of the rental. Commonly found in: listing address line, property details."
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Geographic latitude coordinate. Commonly found in: map embed data, JSON-LD structured data, page metadata."
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Geographic longitude coordinate. Commonly found in: map embed data, JSON-LD structured data, page metadata."
+    },
+    "rent_monthly": {
+      "type": "number",
+      "description": "Monthly rent amount. Commonly found in: listing price header, rental details section, pricing box."
+    },
+    "rent_currency": {
+      "type": "string",
+      "description": "ISO 4217 currency code for rent (e.g. USD). Commonly found in: price display, listing details."
+    },
+    "deposit_amount": {
+      "type": "number",
+      "description": "Security deposit amount. Commonly found in: rental terms section, pricing details, lease terms."
+    },
+    "lease_term_months": {
+      "type": "number",
+      "description": "Lease duration in months. Commonly found in: lease terms section, rental details, availability info."
+    },
+    "lease_type": {
+      "type": "string",
+      "enum": ["fixed", "month_to_month", "other"],
+      "description": "Type of lease agreement. Commonly found in: lease terms section, rental details."
+    },
+    "available_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the rental is available for move-in. Commonly found in: availability section, listing details, rental terms."
+    },
+    "bedrooms": {
+      "type": "number",
+      "description": "Number of bedrooms. Commonly found in: property specs bar, listing summary, header stats."
+    },
+    "bathrooms": {
+      "type": "number",
+      "description": "Number of bathrooms. Commonly found in: property specs bar, listing summary, header stats."
+    },
+    "sqft": {
+      "type": "number",
+      "description": "Total interior square footage. Commonly found in: property specs bar, listing summary, property details table."
+    },
+    "unit_number": {
+      "type": "string",
+      "description": "Unit or apartment number. Commonly found in: listing address, property details, contact section."
+    },
+    "building_name": {
+      "type": "string",
+      "description": "Name of the apartment building or complex. Commonly found in: listing header, property name, breadcrumb."
+    },
+    "pet_policy": {
+      "type": "string",
+      "enum": ["allowed", "cats_only", "no_pets", "other"],
+      "description": "Pet policy for the rental. Commonly found in: rental policies section, amenities list, listing details."
+    },
+    "utilities_included": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of utilities included in the rent. Commonly found in: rental features section, utilities section, listing details."
+    },
+    "parking_included": {
+      "type": "boolean",
+      "description": "Whether parking is included with the rental. Commonly found in: amenities section, parking details, rental features."
+    },
+    "parking_fee": {
+      "type": "number",
+      "description": "Monthly parking fee if parking is not included. Commonly found in: parking details, additional fees section, rental terms."
+    },
+    "amenities": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of amenities available with the rental. Commonly found in: amenities section, building features, listing details."
+    },
+    "laundry_type": {
+      "type": "string",
+      "enum": ["in_unit", "shared", "none", "other"],
+      "description": "Type of laundry facilities available. Commonly found in: amenities section, rental features list, property details."
+    },
+    "furnished": {
+      "type": "boolean",
+      "description": "Whether the unit is furnished. Commonly found in: listing header, property details, amenities section."
+    },
+    "air_conditioning": {
+      "type": "boolean",
+      "description": "Whether the unit has air conditioning. Commonly found in: amenities section, property features, listing details."
+    },
+    "description": {
+      "type": "string",
+      "description": "Full text description of the rental. Commonly found in: listing description section, overview text block."
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": "URLs of rental property images. Commonly found in: photo gallery, image carousel, media section."
+    },
+    "contact_phone": {
+      "type": "string",
+      "description": "Contact phone number for the rental inquiry. Commonly found in: contact section, landlord info, sidebar."
+    },
+    "contact_email": {
+      "type": "string",
+      "format": "email",
+      "description": "Contact email address for the rental inquiry. Commonly found in: contact section, landlord info, apply button."
+    },
+    "listing_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the rental was listed. Commonly found in: listing stats, posted date label, metadata."
+    },
+    "days_on_market": {
+      "type": "number",
+      "description": "Number of days the rental has been listed. Commonly found in: listing stats section, property details."
+    },
+    "page_title": {
+      "type": "string",
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
+      "type": "string",
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
+    }
+  },
+  "required": ["address", "city", "state", "zip_code", "rent_monthly", "bedrooms", "bathrooms"]
+}

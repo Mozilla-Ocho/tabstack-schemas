@@ -1,0 +1,165 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.io/real-estate/residential-listing.json",
+  "title": "Residential Listing",
+  "description": "Schema for residential real estate listings including homes, condos, and townhouses for sale.",
+  "type": "object",
+  "properties": {
+    "address": {
+      "type": "string",
+      "description": "Street address of the property. Commonly found in: listing page header, property details section, MLS data block."
+    },
+    "city": {
+      "type": "string",
+      "description": "City where the property is located. Commonly found in: listing address line, property details, breadcrumb navigation."
+    },
+    "state": {
+      "type": "string",
+      "description": "State or province where the property is located. Commonly found in: listing address line, property details, breadcrumb navigation."
+    },
+    "zip_code": {
+      "type": "string",
+      "description": "ZIP or postal code of the property. Commonly found in: listing address line, property details."
+    },
+    "country": {
+      "type": "string",
+      "description": "Country where the property is located. Commonly found in: listing address line, property details."
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Geographic latitude coordinate of the property. Commonly found in: map embed data, JSON-LD structured data, page metadata."
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Geographic longitude coordinate of the property. Commonly found in: map embed data, JSON-LD structured data, page metadata."
+    },
+    "price": {
+      "type": "number",
+      "description": "Listing price of the property in the listed currency. Commonly found in: listing header price display, property summary box, price history section."
+    },
+    "price_currency": {
+      "type": "string",
+      "description": "ISO 4217 currency code for the listing price (e.g. USD). Commonly found in: price display, property details."
+    },
+    "price_per_sqft": {
+      "type": "number",
+      "description": "Price per square foot of the property. Commonly found in: property details table, listing stats section."
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "pending", "sold", "off_market", "other"],
+      "description": "Current listing status of the property. Commonly found in: listing status badge, property header, MLS status field."
+    },
+    "bedrooms": {
+      "type": "number",
+      "description": "Number of bedrooms. Commonly found in: property specs bar, listing summary, property details table."
+    },
+    "bathrooms_full": {
+      "type": "number",
+      "description": "Number of full bathrooms. Commonly found in: property specs bar, listing summary, property details table."
+    },
+    "bathrooms_half": {
+      "type": "number",
+      "description": "Number of half bathrooms. Commonly found in: property details table, listing summary."
+    },
+    "sqft": {
+      "type": "number",
+      "description": "Total interior square footage of the property. Commonly found in: property specs bar, listing summary, property details table."
+    },
+    "lot_size_sqft": {
+      "type": "number",
+      "description": "Lot size in square feet. Commonly found in: property details table, listing stats section."
+    },
+    "year_built": {
+      "type": "number",
+      "description": "Year the property was built. Commonly found in: property details table, listing overview section."
+    },
+    "property_type": {
+      "type": "string",
+      "enum": ["single_family", "condo", "townhouse", "multi_family", "land", "other"],
+      "description": "Type of residential property. Commonly found in: listing header, property details, breadcrumb navigation."
+    },
+    "stories": {
+      "type": "number",
+      "description": "Number of stories or floors in the property. Commonly found in: property details table, listing features section."
+    },
+    "garage_spaces": {
+      "type": "number",
+      "description": "Number of garage parking spaces. Commonly found in: property details table, listing features section."
+    },
+    "hoa_fee_monthly": {
+      "type": "number",
+      "description": "Monthly HOA (Homeowners Association) fee amount. Commonly found in: property details table, listing financial section, HOA info block."
+    },
+    "days_on_market": {
+      "type": "number",
+      "description": "Number of days the property has been listed on the market. Commonly found in: listing stats section, property details table, MLS data."
+    },
+    "listing_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the property was listed. Commonly found in: listing stats section, property history, MLS data."
+    },
+    "description": {
+      "type": "string",
+      "description": "Full text description of the property. Commonly found in: listing description section, property overview text block."
+    },
+    "features": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of property features and amenities. Commonly found in: property features section, listing amenities list, interior/exterior features."
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri"
+      },
+      "description": "URLs of property images. Commonly found in: photo gallery, listing image carousel, media section."
+    },
+    "agent_name": {
+      "type": "string",
+      "description": "Name of the listing agent. Commonly found in: agent contact card, listing agent section, sidebar."
+    },
+    "agent_phone": {
+      "type": "string",
+      "description": "Phone number of the listing agent. Commonly found in: agent contact card, listing agent section."
+    },
+    "brokerage": {
+      "type": "string",
+      "description": "Name of the brokerage firm representing the listing. Commonly found in: agent contact card, listing attribution, footer."
+    },
+    "mls_id": {
+      "type": "string",
+      "description": "MLS (Multiple Listing Service) identifier for this listing. Commonly found in: listing details table, MLS data block, footer attribution."
+    },
+    "open_house_dates": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "description": "Scheduled open house dates and times. Commonly found in: open house section, listing sidebar, event calendar."
+    },
+    "tax_assessed_value": {
+      "type": "number",
+      "description": "Tax assessed value of the property. Commonly found in: property tax section, listing financial details, public records."
+    },
+    "annual_tax": {
+      "type": "number",
+      "description": "Annual property tax amount. Commonly found in: property tax section, listing financial details, public records."
+    },
+    "page_title": {
+      "type": "string",
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
+      "type": "string",
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
+    }
+  },
+  "required": ["address", "city", "state", "zip_code", "price", "status", "bedrooms", "bathrooms_full", "property_type"]
+}

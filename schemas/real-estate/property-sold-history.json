@@ -1,0 +1,110 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.io/real-estate/property-sold-history.json",
+  "title": "Property Sold History",
+  "description": "Schema for historical property sale transaction records.",
+  "type": "object",
+  "properties": {
+    "address": {
+      "type": "string",
+      "description": "Street address of the sold property. Commonly found in: sold listing page, transaction record, public records."
+    },
+    "city": {
+      "type": "string",
+      "description": "City of the sold property. Commonly found in: sold listing page, property history section, public records."
+    },
+    "state": {
+      "type": "string",
+      "description": "State or province of the sold property. Commonly found in: sold listing page, transaction record, public records."
+    },
+    "zip_code": {
+      "type": "string",
+      "description": "ZIP or postal code of the sold property. Commonly found in: listing address, property details."
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Geographic latitude coordinate. Commonly found in: map embed data, JSON-LD structured data."
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Geographic longitude coordinate. Commonly found in: map embed data, JSON-LD structured data."
+    },
+    "sale_price": {
+      "type": "number",
+      "description": "Final sale price of the property. Commonly found in: sold price display, transaction history table, property history section."
+    },
+    "sale_currency": {
+      "type": "string",
+      "description": "ISO 4217 currency code for the sale price. Commonly found in: price display, transaction details."
+    },
+    "sale_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the property sale closed. Commonly found in: sold date display, transaction history table, property history section."
+    },
+    "property_type": {
+      "type": "string",
+      "description": "Type of property (e.g., single_family, condo). Commonly found in: property details, listing type badge, public records."
+    },
+    "bedrooms": {
+      "type": "number",
+      "description": "Number of bedrooms. Commonly found in: property specs, listing summary, public records."
+    },
+    "bathrooms": {
+      "type": "number",
+      "description": "Number of bathrooms. Commonly found in: property specs, listing summary, public records."
+    },
+    "sqft": {
+      "type": "number",
+      "description": "Total interior square footage. Commonly found in: property specs, listing summary, public records."
+    },
+    "price_per_sqft": {
+      "type": "number",
+      "description": "Sale price per square foot. Commonly found in: transaction details, property stats, listing data."
+    },
+    "prior_sale_price": {
+      "type": "number",
+      "description": "Price from the prior sale of this property. Commonly found in: price history section, property history table."
+    },
+    "prior_sale_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the prior sale. Commonly found in: price history section, property history table."
+    },
+    "price_change_pct": {
+      "type": "number",
+      "description": "Percentage change in price from prior sale. Commonly found in: price history section, property value change indicator."
+    },
+    "days_on_market": {
+      "type": "number",
+      "description": "Number of days the property was on the market before sale. Commonly found in: transaction details, listing history, MLS data."
+    },
+    "list_price": {
+      "type": "number",
+      "description": "Original listing price before sale. Commonly found in: price history section, transaction details, listing history."
+    },
+    "list_to_sale_ratio": {
+      "type": "number",
+      "description": "Ratio of sale price to list price. Commonly found in: transaction details, listing history stats."
+    },
+    "financing_type": {
+      "type": "string",
+      "enum": ["conventional", "cash", "FHA", "VA", "other"],
+      "description": "Type of financing used in the transaction. Commonly found in: transaction details, deed records, public records."
+    },
+    "mls_id": {
+      "type": "string",
+      "description": "MLS identifier for the listing. Commonly found in: listing details, MLS data block, transaction record."
+    },
+    "page_title": {
+      "type": "string",
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
+      "type": "string",
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
+    }
+  },
+  "required": ["address", "city", "state", "zip_code", "sale_price", "sale_date"]
+}

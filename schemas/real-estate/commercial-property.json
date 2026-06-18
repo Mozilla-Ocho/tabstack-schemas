@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.io/real-estate/commercial-property.json",
+  "title": "Commercial Property",
+  "description": "Schema for commercial real estate property listings including office, retail, and industrial.",
+  "type": "object",
+  "properties": {
+    "address": {
+      "type": "string",
+      "description": "Street address of the commercial property. Commonly found in: listing page header, property details section, contact block."
+    },
+    "city": {
+      "type": "string",
+      "description": "City where the property is located. Commonly found in: listing address, breadcrumb navigation, property header."
+    },
+    "state": {
+      "type": "string",
+      "description": "State or province of the property. Commonly found in: listing address, breadcrumb navigation, property header."
+    },
+    "zip_code": {
+      "type": "string",
+      "description": "ZIP or postal code. Commonly found in: listing address line, property details."
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Geographic latitude coordinate. Commonly found in: map embed data, JSON-LD structured data, page metadata."
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Geographic longitude coordinate. Commonly found in: map embed data, JSON-LD structured data, page metadata."
+    },
+    "price": {
+      "type": "number",
+      "description": "Listing price or annual lease rate. Commonly found in: listing price header, property financials section, asking price display."
+    },
+    "price_type": {
+      "type": "string",
+      "enum": ["sale", "lease", "other"],
+      "description": "Whether the property is listed for sale or lease. Commonly found in: listing type badge, property header, transaction type field."
+    },
+    "lease_type": {
+      "type": "string",
+      "enum": ["NNN", "gross", "modified_gross", "other"],
+      "description": "Type of lease structure (Net, Gross, or Modified Gross). Commonly found in: lease details section, property financials, listing details table."
+    },
+    "price_per_sqft": {
+      "type": "number",
+      "description": "Price or rent per square foot. Commonly found in: property financials section, listing stats, price breakdown."
+    },
+    "cap_rate": {
+      "type": "number",
+      "description": "Capitalization rate as a percentage. Commonly found in: investment highlights, property financials, listing stats."
+    },
+    "noi": {
+      "type": "number",
+      "description": "Net Operating Income (NOI) in dollars. Commonly found in: investment highlights, property financials, income section."
+    },
+    "building_class": {
+      "type": "string",
+      "enum": ["A", "B", "C", "other"],
+      "description": "Building class rating (A, B, or C). Commonly found in: property details table, building specs section, listing highlights."
+    },
+    "property_type": {
+      "type": "string",
+      "enum": ["office", "retail", "industrial", "multifamily", "mixed_use", "land", "other"],
+      "description": "Type of commercial property. Commonly found in: listing header, property type badge, breadcrumb navigation."
+    },
+    "total_sqft": {
+      "type": "number",
+      "description": "Total square footage of the building. Commonly found in: property specs, building details, listing summary."
+    },
+    "available_sqft": {
+      "type": "number",
+      "description": "Available square footage for lease. Commonly found in: availability section, space details, listing specs."
+    },
+    "lot_size_sqft": {
+      "type": "number",
+      "description": "Total lot size in square feet. Commonly found in: property details table, land details, site specs."
+    },
+    "year_built": {
+      "type": "number",
+      "description": "Year the building was constructed. Commonly found in: property details table, building specs, overview section."
+    },
+    "floors": {
+      "type": "number",
+      "description": "Number of floors in the building. Commonly found in: building details, property specs table, listing details."
+    },
+    "zoning": {
+      "type": "string",
+      "description": "Zoning classification of the property. Commonly found in: property details table, zoning section, public records link."
+    },
+    "parking_ratio": {
+      "type": "number",
+      "description": "Parking spaces per 1,000 square feet. Commonly found in: parking details, property specs, building amenities."
+    },
+    "loading_docks": {
+      "type": "number",
+      "description": "Number of loading docks (industrial properties). Commonly found in: industrial specs, property details, building features."
+    },
+    "clear_height_ft": {
+      "type": "number",
+      "description": "Clear ceiling height in feet (industrial properties). Commonly found in: industrial specs, building features, property details table."
+    },
+    "occupancy_rate": {
+      "type": "number",
+      "description": "Current building occupancy rate as a percentage. Commonly found in: investment highlights, property financials, occupancy section."
+    },
+    "broker_name": {
+      "type": "string",
+      "description": "Name of the listing broker or agent. Commonly found in: broker contact card, listing agent section, sidebar."
+    },
+    "broker_firm": {
+      "type": "string",
+      "description": "Name of the brokerage firm. Commonly found in: broker contact card, listing attribution, footer."
+    },
+    "status": {
+      "type": "string",
+      "description": "Current listing status. Commonly found in: listing status badge, property header, availability section."
+    },
+    "listing_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the property was listed. Commonly found in: listing stats section, property history, metadata."
+    },
+    "page_title": {
+      "type": "string",
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
+      "type": "string",
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
+    }
+  },
+  "required": ["address", "city", "state", "zip_code", "price_type", "property_type"]
+}
