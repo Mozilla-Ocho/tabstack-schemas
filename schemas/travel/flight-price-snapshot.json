@@ -1,0 +1,266 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/travel/flight-price-snapshot.json",
+  "title": "Flight Price Snapshot",
+  "description": "Point-in-time price snapshot for a flight itinerary from an OTA or airline website.",
+  "type": "object",
+  "properties": {
+    "origin_iata": {
+      "type": "string",
+      "description": "IATA code for the origin airport.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "Google Flights",
+        "Kayak",
+        "Expedia",
+        "airline website"
+      ]
+    },
+    "origin_city": {
+      "type": "string",
+      "description": "City name for the origin airport.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "Google Flights",
+        "airport database"
+      ]
+    },
+    "destination_iata": {
+      "type": "string",
+      "description": "IATA code for the destination airport.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "Google Flights",
+        "Kayak",
+        "airline website"
+      ]
+    },
+    "destination_city": {
+      "type": "string",
+      "description": "City name for the destination airport.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "Google Flights",
+        "airport database"
+      ]
+    },
+    "outbound_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the outbound flight.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "flight listing",
+        "booking page"
+      ]
+    },
+    "return_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the return flight (for roundtrip).",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "flight listing",
+        "booking page"
+      ]
+    },
+    "trip_type": {
+      "type": "string",
+      "enum": [
+        "one_way",
+        "roundtrip",
+        "multi_city"
+      ],
+      "description": "Type of trip.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "search form",
+        "flight listing"
+      ]
+    },
+    "airline": {
+      "type": "string",
+      "description": "Operating airline name.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "flight listing",
+        "airline name in result"
+      ]
+    },
+    "flight_number": {
+      "type": "string",
+      "description": "Flight number.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "flight listing",
+        "booking page"
+      ]
+    },
+    "cabin_class": {
+      "type": "string",
+      "enum": [
+        "economy",
+        "premium_economy",
+        "business",
+        "first"
+      ],
+      "description": "Cabin class of the booking.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "search form",
+        "flight listing"
+      ]
+    },
+    "stops": {
+      "type": "number",
+      "description": "Number of stops (0 = nonstop).",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "flight listing",
+        "stop count indicator"
+      ]
+    },
+    "layover_airports": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IATA codes of layover airports.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "flight details",
+        "itinerary breakdown"
+      ]
+    },
+    "total_duration_minutes": {
+      "type": "number",
+      "description": "Total flight duration in minutes.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "flight listing",
+        "itinerary details"
+      ]
+    },
+    "outbound_departure": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Departure datetime for outbound flight.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "flight listing",
+        "itinerary details"
+      ]
+    },
+    "outbound_arrival": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Arrival datetime for outbound flight.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "flight listing",
+        "itinerary details"
+      ]
+    },
+    "price_usd": {
+      "type": "number",
+      "description": "Total price in USD.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "flight listing price",
+        "booking page"
+      ]
+    },
+    "price_currency": {
+      "type": "string",
+      "description": "Currency code for the price.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "flight listing",
+        "currency indicator"
+      ]
+    },
+    "taxes_fees_usd": {
+      "type": "number",
+      "description": "Total taxes and fees in USD.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "price breakdown",
+        "booking page"
+      ]
+    },
+    "base_fare_usd": {
+      "type": "number",
+      "description": "Base fare before taxes in USD.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "price breakdown",
+        "booking page"
+      ]
+    },
+    "booking_url": {
+      "type": "string",
+      "description": "URL to book this flight.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "booking link from listing"
+      ]
+    },
+    "seats_remaining": {
+      "type": "number",
+      "description": "Number of seats remaining at this price.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "flight listing urgency indicator"
+      ]
+    },
+    "refundable": {
+      "type": "boolean",
+      "description": "Whether the ticket is refundable.",
+      "x-tabstack-priority": "optional",
+      "x-tabstack-source-hints": [
+        "fare conditions",
+        "booking page"
+      ]
+    },
+    "snapshot_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of the price snapshot.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "scraper metadata"
+      ]
+    },
+    "source_url": {
+      "type": "string",
+      "description": "URL of the source search results page.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "OTA search URL",
+        "airline website URL"
+      ]
+    },
+    "extracted_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when this record was extracted.",
+      "x-tabstack-priority": "required",
+      "x-tabstack-source-hints": [
+        "scraper metadata"
+      ]
+    }
+  },
+  "required": [
+    "origin_iata",
+    "destination_iata",
+    "outbound_date",
+    "trip_type",
+    "airline",
+    "cabin_class",
+    "stops",
+    "price_usd",
+    "snapshot_at",
+    "source_url",
+    "extracted_at"
+  ]
+}
