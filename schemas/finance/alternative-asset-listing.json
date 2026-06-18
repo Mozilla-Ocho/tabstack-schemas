@@ -1,0 +1,105 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/finance/alternative-asset-listing.json",
+  "title": "Alternative Asset Listing",
+  "description": "Listing for an alternative asset such as art, wine, watches, sports cards, sneakers, or other collectibles.",
+  "type": "object",
+  "properties": {
+    "item_name": {
+      "type": "string",
+      "description": "Name or title of the item. Commonly found in: auction listing, marketplace listing."
+    },
+    "item_type": {
+      "type": "string",
+      "enum": ["art", "wine", "watch", "sports_card", "sneaker", "jewelry", "collectible", "real_assets", "other"],
+      "description": "Category of the alternative asset. Commonly found in: auction category, marketplace category."
+    },
+    "artist_or_maker": {
+      "type": "string",
+      "description": "Artist, brand, or maker of the item. Commonly found in: listing details, auction catalog."
+    },
+    "title_or_model": {
+      "type": "string",
+      "description": "Title of artwork or model name/number. Commonly found in: listing title, auction catalog."
+    },
+    "year": {
+      "type": "number",
+      "description": "Year of creation or manufacture. Commonly found in: listing details, auction catalog."
+    },
+    "condition_grade": {
+      "type": "string",
+      "description": "Condition or grade of the item. Commonly found in: listing details, grading service report."
+    },
+    "authentication_status": {
+      "type": "boolean",
+      "description": "Whether the item has been authenticated. Commonly found in: listing details, authentication certificate."
+    },
+    "authentication_provider": {
+      "type": "string",
+      "description": "Name of the authentication or grading service. Commonly found in: listing details, authentication certificate."
+    },
+    "platform": {
+      "type": "string",
+      "description": "Name of the marketplace or auction platform. Commonly found in: platform name from URL, listing metadata."
+    },
+    "listing_type": {
+      "type": "string",
+      "enum": ["auction", "buy_now", "make_offer", "other"],
+      "description": "Type of sale mechanism. Commonly found in: listing page, sale type indicator."
+    },
+    "estimate_low_usd": {
+      "type": "number",
+      "description": "Low end of auction house price estimate in USD. Commonly found in: auction catalog, estimate section."
+    },
+    "estimate_high_usd": {
+      "type": "number",
+      "description": "High end of auction house price estimate in USD. Commonly found in: auction catalog, estimate section."
+    },
+    "starting_bid_usd": {
+      "type": "number",
+      "description": "Starting bid for auction in USD. Commonly found in: auction listing."
+    },
+    "current_bid_usd": {
+      "type": "number",
+      "description": "Current highest bid in USD (for live auctions). Commonly found in: live auction page."
+    },
+    "buy_now_price_usd": {
+      "type": "number",
+      "description": "Fixed buy-now price in USD. Commonly found in: buy now listing."
+    },
+    "currency": {
+      "type": "string",
+      "description": "Currency code for the listed prices. Commonly found in: listing price display."
+    },
+    "auction_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the auction. Commonly found in: auction listing, event calendar."
+    },
+    "sale_result_usd": {
+      "type": "number",
+      "description": "Final sale price in USD (post-auction). Commonly found in: auction results page."
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "URLs of item images. Commonly found in: listing images."
+    },
+    "description": {
+      "type": "string",
+      "description": "Full description of the item. Commonly found in: listing description, auction catalog notes."
+    },
+    "page_title": {
+      "type": "string",
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
+      "type": "string",
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
+    }
+  },
+  "required": ["item_name", "item_type", "platform", "listing_type"]
+}

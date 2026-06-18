@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/finance/vc-portfolio-page.json",
+  "title": "VC Portfolio Page",
+  "description": "Venture capital or investment firm portfolio page listing companies and investment details.",
+  "type": "object",
+  "properties": {
+    "firm_name": {
+      "type": "string",
+      "description": "Name of the investment firm. Commonly found in: firm website header, about page."
+    },
+    "firm_domain": {
+      "type": "string",
+      "description": "Primary domain of the investment firm. Commonly found in: firm website URL."
+    },
+    "firm_type": {
+      "type": "string",
+      "enum": ["vc", "family_office", "corporate_vc", "accelerator", "angel_group", "other"],
+      "description": "Type of investment firm. Commonly found in: about page, firm description."
+    },
+    "investment_stages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Stages of investment the firm participates in. Commonly found in: about page, investment thesis."
+    },
+    "geographic_focus": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Geographic regions the firm focuses on. Commonly found in: about page, investment criteria."
+    },
+    "sector_focus": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Industry sectors the firm focuses on. Commonly found in: about page, investment thesis."
+    },
+    "fund_size_usd": {
+      "type": "number",
+      "description": "Size of the current or most recent fund in USD. Commonly found in: about page, press releases."
+    },
+    "founding_year": {
+      "type": "number",
+      "description": "Year the firm was founded. Commonly found in: about page, firm history."
+    },
+    "managing_partners": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Partner's full name."
+          },
+          "linkedin_url": {
+            "type": "string",
+            "description": "LinkedIn profile URL."
+          }
+        },
+        "required": ["name"]
+      },
+      "description": "List of managing partners at the firm. Commonly found in: team page, about page."
+    },
+    "portfolio_companies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/PortfolioCompany"
+      },
+      "description": "Companies in the firm's portfolio. Commonly found in: portfolio page, investments page."
+    },
+    "page_title": {
+      "type": "string",
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
+      "type": "string",
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
+    }
+  },
+  "$defs": {
+    "PortfolioCompany": {
+      "type": "object",
+      "description": "A company held in the firm's portfolio.",
+      "properties": {
+        "company_name": {
+          "type": "string",
+          "description": "Name of the portfolio company."
+        },
+        "domain": {
+          "type": "string",
+          "description": "Website domain of the portfolio company."
+        },
+        "investment_stage": {
+          "type": "string",
+          "description": "Stage at which the firm invested."
+        },
+        "year_invested": {
+          "type": "number",
+          "description": "Year the investment was made."
+        },
+        "sector": {
+          "type": "string",
+          "description": "Industry sector of the portfolio company."
+        },
+        "status": {
+          "type": "string",
+          "enum": ["active", "acquired", "public", "shut_down"],
+          "description": "Current status of the portfolio company."
+        }
+      },
+      "required": ["company_name"]
+    }
+  },
+  "required": ["firm_name", "firm_domain", "portfolio_companies"]
+}

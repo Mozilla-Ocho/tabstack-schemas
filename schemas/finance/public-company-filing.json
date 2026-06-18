@@ -1,0 +1,118 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/finance/public-company-filing.json",
+  "title": "Public Company Filing",
+  "description": "SEC or equivalent regulatory filing from a publicly traded company, including financial statements and key metrics.",
+  "type": "object",
+  "properties": {
+    "company_name": {
+      "type": "string",
+      "description": "Legal name of the filing company. Commonly found in: SEC EDGAR, filing header."
+    },
+    "company_domain": {
+      "type": "string",
+      "description": "Primary website domain of the company. Commonly found in: company website, IR page."
+    },
+    "cik": {
+      "type": "string",
+      "description": "SEC Central Index Key (CIK) number. Commonly found in: SEC EDGAR."
+    },
+    "ticker": {
+      "type": "string",
+      "description": "Stock ticker symbol. Commonly found in: exchange listing, filing cover page."
+    },
+    "exchange": {
+      "type": "string",
+      "description": "Stock exchange where the company is listed. Commonly found in: filing cover page, exchange website."
+    },
+    "filing_type": {
+      "type": "string",
+      "enum": ["10-K", "10-Q", "8-K", "S-1", "proxy", "other"],
+      "description": "Type of regulatory filing. Commonly found in: SEC EDGAR form type, filing header."
+    },
+    "period_of_report": {
+      "type": "string",
+      "format": "date",
+      "description": "The period covered by this report (YYYY-MM-DD). Commonly found in: filing cover page, period of report field."
+    },
+    "filed_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the filing was submitted (YYYY-MM-DD). Commonly found in: SEC EDGAR filing date, filing header."
+    },
+    "document_url": {
+      "type": "string",
+      "description": "Direct URL to the primary filing document. Commonly found in: SEC EDGAR documents page."
+    },
+    "revenue_usd": {
+      "type": "number",
+      "description": "Total revenue in USD for the reporting period. Commonly found in: income statement, financial highlights."
+    },
+    "gross_profit_usd": {
+      "type": "number",
+      "description": "Gross profit in USD. Commonly found in: income statement."
+    },
+    "operating_income_usd": {
+      "type": "number",
+      "description": "Operating income (EBIT) in USD. Commonly found in: income statement."
+    },
+    "net_income_usd": {
+      "type": "number",
+      "description": "Net income in USD. Commonly found in: income statement, financial highlights."
+    },
+    "ebitda_usd": {
+      "type": "number",
+      "description": "EBITDA in USD. Commonly found in: financial highlights, non-GAAP disclosures."
+    },
+    "total_assets_usd": {
+      "type": "number",
+      "description": "Total assets in USD. Commonly found in: balance sheet."
+    },
+    "total_liabilities_usd": {
+      "type": "number",
+      "description": "Total liabilities in USD. Commonly found in: balance sheet."
+    },
+    "cash_and_equivalents_usd": {
+      "type": "number",
+      "description": "Cash and cash equivalents in USD. Commonly found in: balance sheet, cash flow statement."
+    },
+    "total_debt_usd": {
+      "type": "number",
+      "description": "Total debt in USD. Commonly found in: balance sheet, debt schedule."
+    },
+    "shares_outstanding": {
+      "type": "number",
+      "description": "Number of shares outstanding. Commonly found in: balance sheet, cover page."
+    },
+    "eps_basic": {
+      "type": "number",
+      "description": "Basic earnings per share. Commonly found in: income statement, EPS table."
+    },
+    "eps_diluted": {
+      "type": "number",
+      "description": "Diluted earnings per share. Commonly found in: income statement, EPS table."
+    },
+    "guidance_revenue_low": {
+      "type": "number",
+      "description": "Low end of revenue guidance in USD. Commonly found in: outlook section, press release."
+    },
+    "guidance_revenue_high": {
+      "type": "number",
+      "description": "High end of revenue guidance in USD. Commonly found in: outlook section, press release."
+    },
+    "auditor_name": {
+      "type": "string",
+      "description": "Name of the external auditor. Commonly found in: auditor's report, 10-K notes."
+    },
+    "page_title": {
+      "type": "string",
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
+      "type": "string",
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
+    }
+  },
+  "required": ["company_name", "filing_type", "period_of_report", "filed_date"]
+}

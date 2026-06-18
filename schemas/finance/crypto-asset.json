@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/finance/crypto-asset.json",
+  "title": "Crypto Asset",
+  "description": "Snapshot of market data for a cryptocurrency or digital asset.",
+  "type": "object",
+  "properties": {
+    "token_name": {
+      "type": "string",
+      "description": "Full name of the token or cryptocurrency. Commonly found in: CoinGecko, CoinMarketCap, exchange listing."
+    },
+    "token_symbol": {
+      "type": "string",
+      "description": "Ticker symbol of the token (e.g., BTC, ETH). Commonly found in: CoinGecko, CoinMarketCap, exchange listing."
+    },
+    "coingecko_id": {
+      "type": "string",
+      "description": "CoinGecko identifier for the asset. Commonly found in: CoinGecko API."
+    },
+    "contract_address": {
+      "type": "string",
+      "description": "Smart contract address for the token. Commonly found in: blockchain explorer, CoinGecko."
+    },
+    "blockchain": {
+      "type": "string",
+      "description": "Blockchain network where the token resides. Commonly found in: CoinGecko, blockchain explorer."
+    },
+    "price_usd": {
+      "type": "number",
+      "description": "Current price in USD. Commonly found in: CoinGecko, CoinMarketCap, exchange API."
+    },
+    "price_change_24h_pct": {
+      "type": "number",
+      "description": "Price change percentage over the last 24 hours. Commonly found in: CoinGecko, CoinMarketCap."
+    },
+    "price_change_7d_pct": {
+      "type": "number",
+      "description": "Price change percentage over the last 7 days. Commonly found in: CoinGecko, CoinMarketCap."
+    },
+    "market_cap_usd": {
+      "type": "number",
+      "description": "Market capitalization in USD. Commonly found in: CoinGecko, CoinMarketCap."
+    },
+    "market_cap_rank": {
+      "type": "number",
+      "description": "Global market cap rank. Commonly found in: CoinGecko, CoinMarketCap."
+    },
+    "volume_24h_usd": {
+      "type": "number",
+      "description": "24-hour trading volume in USD. Commonly found in: CoinGecko, CoinMarketCap, exchange."
+    },
+    "circulating_supply": {
+      "type": "number",
+      "description": "Number of tokens currently in circulation. Commonly found in: CoinGecko, CoinMarketCap."
+    },
+    "total_supply": {
+      "type": "number",
+      "description": "Total token supply. Commonly found in: CoinGecko, token contract."
+    },
+    "max_supply": {
+      "type": "number",
+      "description": "Maximum possible token supply. Commonly found in: CoinGecko, whitepaper."
+    },
+    "fully_diluted_valuation_usd": {
+      "type": "number",
+      "description": "Fully diluted valuation (FDV) in USD. Commonly found in: CoinGecko, CoinMarketCap."
+    },
+    "ath_usd": {
+      "type": "number",
+      "description": "All-time high price in USD. Commonly found in: CoinGecko, CoinMarketCap."
+    },
+    "ath_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of all-time high price. Commonly found in: CoinGecko, CoinMarketCap."
+    },
+    "category": {
+      "type": "string",
+      "description": "Asset category (e.g., DeFi, Layer 1, stablecoin). Commonly found in: CoinGecko categories, CoinMarketCap tags."
+    },
+    "snapshot_at": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of the price snapshot. Commonly found in: API response timestamp."
+    },
+    "page_title": {
+      "type": "string",
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
+      "type": "string",
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
+    }
+  },
+  "required": ["token_name", "token_symbol", "price_usd", "snapshot_at"]
+}

@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://schemas.tabstack.com/v1/finance/angel-seed-deal.json",
+  "title": "Angel & Seed Deal",
+  "description": "Early-stage funding round announcement including angel, pre-seed, seed, convertible note, and SAFE deals.",
+  "type": "object",
+  "properties": {
+    "company_name": {
+      "type": "string",
+      "description": "Name of the company that raised funding. Commonly found in: AngelList, Crunchbase, press release."
+    },
+    "company_domain": {
+      "type": "string",
+      "description": "Website domain of the company. Commonly found in: company website, Crunchbase."
+    },
+    "founder_names": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Names of the company founders. Commonly found in: press release, AngelList, LinkedIn."
+    },
+    "round_type": {
+      "type": "string",
+      "enum": ["angel", "pre_seed", "seed", "convertible_note", "safe", "other"],
+      "description": "Type of funding round. Commonly found in: Crunchbase, press release, AngelList."
+    },
+    "amount_usd": {
+      "type": "number",
+      "description": "Amount raised in USD. Commonly found in: press release, Crunchbase, SEC Form D."
+    },
+    "announced_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the deal was announced. Commonly found in: press release date, Crunchbase, AngelList."
+    },
+    "lead_investor_name": {
+      "type": "string",
+      "description": "Name of the lead investor. Commonly found in: press release, Crunchbase, AngelList."
+    },
+    "lead_investor_type": {
+      "type": "string",
+      "enum": ["angel", "fund", "accelerator", "other"],
+      "description": "Type of lead investor. Commonly found in: press release, Crunchbase."
+    },
+    "co_investors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of co-investors in the round. Commonly found in: press release, Crunchbase, AngelList."
+    },
+    "valuation_cap_usd": {
+      "type": "number",
+      "description": "Valuation cap for convertible note or SAFE in USD. Commonly found in: SEC Form D, press release."
+    },
+    "discount_pct": {
+      "type": "number",
+      "description": "Discount percentage for convertible instruments. Commonly found in: SEC Form D, deal terms."
+    },
+    "accelerator_name": {
+      "type": "string",
+      "description": "Name of the accelerator program if applicable. Commonly found in: accelerator website, press release."
+    },
+    "accelerator_batch": {
+      "type": "string",
+      "description": "Accelerator batch or cohort identifier. Commonly found in: accelerator website, announcement."
+    },
+    "company_description": {
+      "type": "string",
+      "description": "Brief description of what the company does. Commonly found in: press release, Crunchbase, company website."
+    },
+    "company_industry": {
+      "type": "string",
+      "description": "Industry vertical of the company. Commonly found in: Crunchbase, AngelList, press release."
+    },
+    "use_of_funds": {
+      "type": "string",
+      "description": "Stated use of the raised funds. Commonly found in: press release, company blog."
+    },
+    "source_type": {
+      "type": "string",
+      "enum": ["angellist", "crunchbase", "twitter", "press_release", "other"],
+      "description": "Type of source where this deal was found. Commonly found in: scraper metadata."
+    },
+    "page_title": {
+      "type": "string",
+      "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty."
+    },
+    "favicon": {
+      "type": "string",
+      "format": "uri",
+      "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty."
+    }
+  },
+  "required": ["company_name", "round_type", "announced_date"]
+}
