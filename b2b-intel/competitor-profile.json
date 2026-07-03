@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Competitor Profile",
+  "description": "Schema for a competitor's public profile extracted from a homepage, product, or about page: positioning, product, target customers, pricing summary, and recent activity.",
+  "type": "object",
+  "$defs": {
+    "feature": {
+      "type": "object",
+      "description": "A product feature or capability the competitor promotes.",
+      "properties": {
+        "name": { "type": "string", "description": "Short name of the feature. Commonly found in: feature card heading, product section title, nav submenu label." },
+        "description": { "type": "string", "description": "One-line description of what the feature does. Commonly found in: feature card body, product section copy, tooltip." }
+      },
+      "required": ["name"]
+    },
+    "pricing_tier": {
+      "type": "object",
+      "description": "A summary of one pricing plan as shown on the homepage or a pricing teaser.",
+      "properties": {
+        "plan_name": { "type": "string", "description": "Name of the plan. Commonly found in: pricing card title, plan tier label, pricing teaser." },
+        "starting_price": { "type": "string", "description": "Displayed starting price, including currency and period as written. Commonly found in: pricing card price, plan headline price, pricing teaser." },
+        "billing_period": { "type": "string", "description": "Billing period for the price (e.g., per month, per year, per seat). Commonly found in: pricing card interval label, billing toggle, price footnote." }
+      },
+      "required": ["plan_name"]
+    },
+    "announcement": {
+      "type": "object",
+      "description": "A recent update, release, or news item promoted on the site.",
+      "properties": {
+        "title": { "type": "string", "description": "Title of the announcement or update. Commonly found in: blog teaser, changelog entry, news banner, what's new section." },
+        "date": { "type": "string", "format": "date", "description": "Date the announcement was published. Commonly found in: blog post date, changelog entry date, press release date." },
+        "url": { "type": "string", "format": "uri", "description": "Link to the full announcement. Commonly found in: blog teaser link, changelog entry link, news item href." }
+      },
+      "required": ["title"]
+    }
+  },
+  "properties": {
+    "company_name": { "type": "string", "description": "Company or product name. Commonly found in: site logo, page header, og:site_name meta tag." },
+    "domain": { "type": "string", "description": "Primary website domain. Commonly found in: site URL, canonical link, footer." },
+    "tagline": { "type": "string", "description": "Primary hero tagline or one-line positioning statement. Commonly found in: homepage hero heading, hero subhead, meta description." },
+    "description": { "type": "string", "description": "Short description of what the product does. Commonly found in: hero subhead, about section, meta description tag." },
+    "category": { "type": "string", "description": "Product category or market the company positions itself in. Commonly found in: hero copy, about section, how-it-works heading." },
+    "value_propositions": { "type": "array", "items": { "type": "string" }, "description": "Key value propositions or benefits the company leads with. Commonly found in: hero bullets, benefit section headings, feature callouts." },
+    "positioning_statements": { "type": "array", "items": { "type": "string" }, "description": "How the company frames itself, including any stated contrast with alternatives. Commonly found in: hero copy, comparison section, why-us section." },
+    "differentiators": { "type": "array", "items": { "type": "string" }, "description": "Claimed unique advantages or reasons to choose this product. Commonly found in: why-us section, feature highlights, comparison table." },
+    "key_features": { "type": "array", "items": { "$ref": "#/$defs/feature" }, "description": "Product features or capabilities promoted on the page. Commonly found in: features section, product overview, nav submenu." },
+    "target_customers": { "type": "array", "items": { "type": "string" }, "description": "Audiences or customer types the product is built for. Commonly found in: built-for section, use-case headings, hero copy." },
+    "notable_customers": { "type": "array", "items": { "type": "string" }, "description": "Named customers or logos shown as social proof. Commonly found in: customer logo wall, testimonials section, trusted-by strip." },
+    "integrations": { "type": "array", "items": { "type": "string" }, "description": "Named integrations or supported tools. Commonly found in: integrations section, logo grid, docs nav." },
+    "pricing_summary": { "type": "array", "items": { "$ref": "#/$defs/pricing_tier" }, "description": "Summary of pricing plans shown on the homepage or pricing teaser. Commonly found in: pricing section, plan cards, pricing teaser." },
+    "pricing_url": { "type": "string", "format": "uri", "description": "Link to the full pricing page. Commonly found in: nav pricing link, hero secondary CTA, footer." },
+    "recent_announcements": { "type": "array", "items": { "$ref": "#/$defs/announcement" }, "description": "Recent updates, releases, or news promoted on the site. Commonly found in: blog teasers, changelog, what's new section, news banner." },
+    "primary_cta": { "type": "string", "description": "Text of the main call-to-action button. Commonly found in: hero CTA button, header sign-up button, nav primary action." },
+    "page_title": { "type": "string", "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty." },
+    "favicon": { "type": "string", "format": "uri", "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty." }
+  },
+  "required": ["company_name", "domain"]
+}
