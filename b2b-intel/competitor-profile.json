@@ -18,7 +18,7 @@
       "description": "A summary of one pricing plan as shown on the homepage or a pricing teaser.",
       "properties": {
         "plan_name": { "type": "string", "description": "Name of the plan. Commonly found in: pricing card title, plan tier label, pricing teaser." },
-        "starting_price": { "type": "string", "description": "Displayed starting price, including currency and period as written. Commonly found in: pricing card price, plan headline price, pricing teaser." },
+        "starting_price": { "type": "string", "description": "Displayed starting price as written, verbatim from the page. May be non-numeric (e.g., \"Free\", \"Custom\", \"Contact us\") and include currency and period. Commonly found in: pricing card price, plan headline price, pricing teaser." },
         "billing_period": { "type": "string", "description": "Billing period for the price (e.g., per month, per year, per seat). Commonly found in: pricing card interval label, billing toggle, price footnote." }
       },
       "required": ["plan_name"]
@@ -35,7 +35,7 @@
     }
   },
   "properties": {
-    "company_name": { "type": "string", "description": "Company or product name. Commonly found in: site logo, page header, og:site_name meta tag." },
+    "name": { "type": "string", "description": "Company or product name. Commonly found in: site logo, page header, og:site_name meta tag." },
     "domain": { "type": "string", "description": "Primary website domain. Commonly found in: site URL, canonical link, footer." },
     "tagline": { "type": "string", "description": "Primary hero tagline or one-line positioning statement. Commonly found in: homepage hero heading, hero subhead, meta description." },
     "description": { "type": "string", "description": "Short description of what the product does. Commonly found in: hero subhead, about section, meta description tag." },
@@ -54,5 +54,5 @@
     "page_title": { "type": "string", "description": "Title of the source page. Tabstack auto-fills this from page metadata when left empty." },
     "favicon": { "type": "string", "format": "uri", "description": "Favicon URL of the source page. Tabstack auto-fills this from page metadata when left empty." }
   },
-  "required": ["company_name", "domain"]
+  "required": ["name", "domain"]
 }
