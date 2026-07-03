@@ -1,7 +1,7 @@
 {
   "name": "tabstack-schemas",
   "description": "Pre-defined extraction schemas for Tabstack's extract.json. Grab any file from this repo.",
-  "count": 46,
+  "count": 47,
   "schemas": [
     {
       "category": "b2b-intel",
@@ -14,6 +14,12 @@
       "title": "Company Profile",
       "description": "Schema for B2B company profile data including firmographics, funding, and contact info.",
       "path": "b2b-intel/company-profile.json"
+    },
+    {
+      "category": "b2b-intel",
+      "title": "Competitor Profile",
+      "description": "Schema for a competitor's public profile extracted from a homepage, product, or about page: positioning, product, target customers, pricing summary, and recent activity.",
+      "path": "b2b-intel/competitor-profile.json"
     },
     {
       "category": "b2b-intel",

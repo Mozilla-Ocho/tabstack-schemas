@@ -8,6 +8,7 @@ Each file is a standalone [JSON Schema](https://json-schema.org/) (draft-07) you
 
 - `api-documentation-endpoint.json`: API Documentation Endpoint
 - `company-profile.json`: Company Profile
+- `competitor-profile.json`: Competitor Profile
 - `funding-round.json`: Funding Round
 - `press-release-news-mention.json`: Press Release & News Mention
 - `product-changelog-entry.json`: Product Changelog Entry
