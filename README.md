@@ -58,3 +58,7 @@ Each category folder has its own README with a runnable example. [`index.json`](
   <schema-name>.json
 index.json
 ```
+
+## Feedback
+
+Report a Tabstack problem or request a feature in [tabstack-feedback](https://github.com/Mozilla-Ocho/tabstack-feedback/issues/new/choose). For a problem with a schema in this repo, open an issue here. Include the schema path and the `x-trace-id` from the failing response when relevant. Never paste API keys or personal data into an issue.
