@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Report a problem or request a feature
+    url: https://github.com/Mozilla-Ocho/tabstack-feedback/issues/new/choose
+    about: Tabstack bugs, docs gaps, and feature requests go to tabstack-feedback.
